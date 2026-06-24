@@ -45,7 +45,7 @@
 <link rel="icon" type="image/svg+xml" href="./favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
 <style>
 :root {
   --cream: #FAF7F2;
@@ -134,12 +134,23 @@ body::before {
   margin-bottom: 32px;
 }
 
-.eyebrow {
-  font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase;
-  color: var(--terra); margin-bottom: 20px;
-  display: flex; align-items: center; gap: 10px;
+.logomark {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 28px; font-weight: 700; letter-spacing: -0.03em;
+  color: var(--ink); line-height: 1;
+  display: flex; align-items: flex-start;
+  margin-bottom: 16px;
 }
-.eyebrow-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--terra); }
+.logomark-dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--terra); flex-shrink: 0;
+  margin-left: 3px; margin-top: 4px;
+}
+.eyebrow {
+  font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 28px;
+}
+.eyebrow-dot { display: none; }
 
 h1 {
   font-family: 'Playfair Display', serif;
@@ -219,10 +230,8 @@ footer {
     onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
   <div class="portrait-placeholder" style="display:none">EL</div>
 
-  <div class="eyebrow">
-    <div class="eyebrow-dot"></div>
-    Edosa Leta · Senior UX Designer
-  </div>
+  <div class="logomark">Edosa Leta<span class="logomark-dot"></span></div>
+  <div class="eyebrow">Senior UX Designer</div>
 
   <h1>Something<br><em>good</em> is<br>coming.</h1>
 
