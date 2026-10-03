@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="./site.css?v=41" />
+<link rel="stylesheet" href="./site.css?v=44" />
 </head>
 <body>
 
@@ -115,11 +115,44 @@
       <figcaption>Illustration: a metric card with its scale and anchor examples, and a test case anyone on a team can run.</figcaption>
     </figure>
     <div class="cs-section">
-      <h2>Impact</h2>
-      <ul>
-        <li>A shared vocabulary for &ldquo;is this agent good,&rdquo; and a repeatable way to answer it.</li>
-        <li>Turns the response quality guideline from advice into something a release can be gated on.</li>
+      <h2 data-toc="Decision in practice">Decision in practice</h2>
+      <p class="dp-label">Illustrative example using sample data</p>
+      <h3 class="dp-title">A follow-up that changes the time period</h3>
+      <p>A fictional two-turn conversation, and how one reply is scored. The card below is illustrative.</p>
+      <div class="dp-steps">
+      <section class="dp-panel before">
+        <h4>The conversation</h4>
+        <div class="dp-turns">
+          <div class="dp-turn u"><small>Turn 1, user</small>Show me headcount by department for last quarter.</div>
+          <div class="dp-turn a"><small>Assistant</small>Last quarter: Sales 40, Support 25, Product 15.</div>
+          <div class="dp-turn u"><small>Turn 2, user</small>Actually, make that the last six months.</div>
+          <div class="dp-turn a"><small>Assistant (reply being scored)</small>Headcount over the last six months averaged 82.</div>
+        </div>
+      </section>
+      <section class="dp-panel decision">
+        <h4>My decision: score against the whole conversation</h4>
+        <p>A reply is judged against everything the user has asked so far, not only the latest message. This reply is readable on its own, but it quietly drops the department breakdown that turn one established. Scoring each turn alone would miss that.</p>
+      </section>
+      <section class="dp-panel after">
+        <h4>After: a sample scoring card</h4>
+        <div class="dp-score" role="table" aria-label="Illustrative scoring card">
+          <div class="row head" role="row"><span role="columnheader">Criterion</span><span role="columnheader">Score</span><span role="columnheader">Rationale</span></div>
+          <div class="row" role="row"><b role="cell">Readability</b><span class="n" role="cell">4 / 5</span><span role="cell">One short, plain sentence that is easy to scan.</span></div>
+          <div class="row" role="row"><b role="cell">Completeness</b><span class="n" role="cell">2 / 5</span><span role="cell">Gives a total for the new period but loses the department breakdown.</span></div>
+          <div class="row" role="row"><b role="cell">Word count</b><span class="n" role="cell">4 / 5</span><span role="cell">Length fits the question.</span></div>
+        </div>
+        <p class="dp-note" style="margin-top:12px"><b>What a 5 on completeness looks like:</b> it restates the new period, keeps the department breakdown, and says the period changed.</p>
+      </section>
+      </div>
+      <p class="dp-role"><b>My role.</b> I defined what each metric means in practice, the anchor examples behind each score, and the test-case guidance. Partner teams brought the evaluation infrastructure.</p>
+    </div>
+    <div class="cs-section">
+      <h2 data-toc="Evidence of impact">Evidence of impact</h2>
+      <ul class="dp-ev">
+        <li><span class="ev-tag ship">Shipped / reach</span><span>Published internally.</span></li>
+        <li><span class="ev-tag illus">Illustrative</span><span>The conversation and scoring card above are constructed to explain the multi-turn scoring decision. They are not a real transcript or real scores.</span></li>
       </ul>
+      <p class="ev-legend">Every claim is labeled: where the work ships, what was observed, what was measured, or what is illustrative.</p>
     </div>
     <div class="cs-learned">
       <h2>What I learned</h2>

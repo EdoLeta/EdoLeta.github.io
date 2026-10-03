@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="./site.css?v=41" />
+<link rel="stylesheet" href="./site.css?v=44" />
 </head>
 <body>
 
@@ -28,7 +28,7 @@
 <main>
   <section class="cs-head shell">
     <a class="back-link" href="./work.html">&larr; Work</a>
-    <span class="badge live">Live</span>
+    <span class="badge live">Live in Fusion Agentic Applications</span>
     <h1>Fusion Claw: Outcome Framework</h1>
     <p class="cs-summary">AI agents now finish whole tasks and hand back a result. I designed the framework that makes every result clear, consistent, and on brand, whichever agent produced it.</p>
 
@@ -77,6 +77,7 @@
 
     <div class="cs-section">
       <h2>In the product</h2>
+      <p>Fusion Claw was announced on Sep 29, 2026. Its screens stay blurred here until the public release.</p>
       <div class="pics two">
         <figure class="pic"><div class="mask-wrap"><img src="./assets/fusion-claw/answer-masked.webp" alt="Blurred preview of the Fusion Claw answer view, which will be shown at the public release" loading="lazy" /><span class="mask-note">Screens shared at public release</span></div><figcaption>The answer: findings and recommended actions.</figcaption></figure>
         <figure class="pic"><div class="mask-wrap"><img src="./assets/fusion-claw/canvas-masked.webp" alt="Blurred preview of the Fusion Claw Canvas, which will be shown at the public release" loading="lazy" /><span class="mask-note">Screens shared at public release</span></div><figcaption>The Canvas: an artifact rendered in its own space.</figcaption></figure>
@@ -84,24 +85,48 @@
     </div>
 
     <div class="cs-section">
-      <h2>Impact</h2>
-      <ul>
-        <li>Live across Fusion Agentic Applications for HCM, ERP, CX, and SCM.</li>
-        <li>Results are structurally consistent whichever agent produced them.</li>
-        <li>Redwood brand and accessibility rules carry into every output format.</li>
-      </ul>
-    </div>
-    <div class="cs-section no-toc">
-      <h2>Teams building on this work</h2>
-      <div class="partners">
-        <img src="./assets/logos/accenture.svg" alt="Accenture" />
-        <img src="./assets/logos/deloitte.svg" alt="Deloitte" />
-        <img src="./assets/logos/ibm.svg" alt="IBM" />
-        <img src="./assets/logos/kpmg.svg" alt="KPMG" />
-        <img src="./assets/logos/pwc.svg" alt="PwC" />
+      <h2 data-toc="Decision in practice">Decision in practice</h2>
+      <p class="dp-label">Illustrative example using sample data</p>
+      <h3 class="dp-title">Which invoices are overdue?</h3>
+      <p>A finance user asks a fictional question about sample invoices. The same question can come back in very different shapes.</p>
+      <div class="dp-steps">
+      <section class="dp-panel before">
+        <h4>Before: an unstructured answer</h4>
+        <p class="dp-quote">&ldquo;Looks like a few invoices are past due. Sample Co A seems to owe quite a bit, and there might be a couple of others, so you may want to follow up soon.&rdquo;</p>
+        <p class="dp-note">No headline number, no list, no sources, and the next step is left to the reader.</p>
+      </section>
+      <section class="dp-panel decision">
+        <h4>My decision: the rule I owned</h4>
+        <p>The model declares intent and the product owns rendering. For an overdue question the contract is fixed: the headline number first, a table for any list of three or more comparable items, and supporting evidence always attached.</p>
+        <pre tabindex="0" aria-label="Sample content contract, simplified"><code>intent: overdue_summary
+answer.headline: "3 invoices overdue, $18,250"
+answer.actions: [remind, remind, escalate]
+artifact.component: table      # rule: 3+ comparable items
+artifact.columns: [invoice, customer, amount, days_overdue]
+evidence: [source, calculation, assumption]</code></pre>
+        <p class="dp-note">A simplified, illustrative contract. It is not the production schema.</p>
+      </section>
+      <section class="dp-panel after">
+        <h4>After: an Outcome</h4>
+        <div class="dp-mini">
+          <div><h5>Answer and actions</h5><p>3 invoices are overdue, $18,250 in total. Send reminders for the two newer ones and escalate the oldest.</p></div>
+          <div><h5>Artifact</h5>
+        <div class="dp-table-wrap" role="region" aria-label="Sample overdue invoices" tabindex="0"><table class="dp-table"><thead><tr><th scope="col">Invoice</th><th scope="col">Customer</th><th scope="col">Amount</th><th scope="col">Days overdue</th></tr></thead><tbody><tr><td>INV-1042</td><td>Sample Co A</td><td>$6,200</td><td>41</td></tr><tr><td>INV-1057</td><td>Sample Co B</td><td>$8,950</td><td>18</td></tr><tr><td>INV-1063</td><td>Sample Co C</td><td>$3,100</td><td>7</td></tr></tbody></table></div>
+          </div>
+          <div><h5>Supporting evidence</h5><p>Source: sample receivables ledger. Calculation: amount past due, summed. Assumption: net-30 payment terms.</p></div>
+        </div>
+      </section>
       </div>
+      <p class="dp-role"><b>My role.</b> I wrote the intent taxonomy and the component-selection rules as prompt skills, and mapped the design system to what the app renders. Engineering built the render pipeline and checks, and the design system team owns Redwood.</p>
     </div>
-
+    <div class="cs-section">
+      <h2 data-toc="Evidence of impact">Evidence of impact</h2>
+      <ul class="dp-ev">
+        <li><span class="ev-tag ship">Shipped / reach</span><span>Part of Fusion Agentic Applications across HCM, ERP, CX and SCM, announced by Oracle (see the announcements below).</span></li>
+        <li><span class="ev-tag illus">Illustrative</span><span>The overdue-invoice example above was constructed to explain the design. It is not a real customer, invoice or product screen.</span></li>
+      </ul>
+      <p class="ev-legend">Every claim is labeled: where the work ships, what was observed, what was measured, or what is illustrative.</p>
+    </div>
     <div class="cs-learned">
       <h2>What I learned</h2>
       <p>Governing AI output is a systems design problem, not a documentation problem. For every rule, the real decision is where it lives: in the prompt, the schema, or the code.</p>
