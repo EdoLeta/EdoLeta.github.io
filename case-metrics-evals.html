@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Metrics and evaluations for conversational quality · Edosa Leta</title>
+<meta name="description" content="How Oracle measures the quality of single-turn and multi-turn AI conversations, and how teams write test cases and run evaluations against those metrics." />
+<link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="./site.css?v=40" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="nav-name" href="./home.html">Edosa Leta<span class="nav-dot"></span></a>
+    <nav class="nav-links">
+      <a class="on" href="./work.html">Work</a>
+      <a href="./projects.html">Projects</a>
+      <a href="./about.html">About</a>
+      <a href="./resume.html">Resume</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="cs-head shell">
+    <a class="back-link" href="./work.html">&larr; Work</a>
+    <span class="badge">Published internally</span>
+    <h1>Metrics and evaluations for conversational quality</h1>
+    <p class="cs-summary">I partnered with internal quality and engineering teams to define how Oracle measures single-turn and multi-turn AI conversations, on readability, completeness and word count, and how teams write test cases and run evaluations.</p>
+
+    <dl class="cs-meta">
+      <div><dt>Role</dt><dd>Co-author, cross-team partner</dd></div>
+      <div><dt>Type</dt><dd>Standards document with test-case methodology</dd></div>
+      <div><dt>Status</dt><dd>Published internally</dd></div>
+    </dl>
+    <figure class="cs-hero"><img src="./assets/metrics-hero.svg?v=3" alt="A metric card showing a definition, a five-step scale, and anchor examples" /></figure>
+  </section>
+
+  <section class="cs-body shell">
+
+    <div class="cs-section">
+      <h2>The problem</h2>
+      <p>The response quality guideline said what good looks like, not how to prove it. Teams judged agents by reading a few transcripts, and two reviewers could disagree on the same one. Multi-turn made it worse: a reply can be right on its own and wrong in context.</p>
+    </div>
+    <div class="cs-section">
+      <h2>What we measure</h2>
+      <p class="sol-intro">We looked at both single-turn and multi-turn conversations. Across both, three measures matter most.</p>
+      <div class="sol-grid three">
+        <div class="sol"><div class="sol-ill"><svg viewBox="0 0 120 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 14h54M18 24h40M18 34h48M18 44h30"/><path class="ink" d="M80 40l8-24 8 24M83 33h10"/></svg></div><span class="n">01</span><h3>Readability</h3><p>How easily a person can read and scan the response.</p></div>
+        <div class="sol"><div class="sol-ill"><svg viewBox="0 0 120 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="40" cy="32" r="22"/><path class="ink" d="M29 32l8 8 15-17"/><path d="M76 20h30M76 32h30M76 44h18"/></svg></div><span class="n">02</span><h3>Completeness</h3><p>Whether the response covers everything the user asked.</p></div>
+        <div class="sol"><div class="sol-ill"><svg viewBox="0 0 120 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="12" y="20" width="96" height="24" rx="5"/><path d="M26 20v8M40 20v12M54 20v8M68 20v12M82 20v8M96 20v12"/><path class="ink" d="M26 52h56M26 52v-4M82 52v-4"/></svg></div><span class="n">03</span><h3>Word count</h3><p>Whether the length fits the question: long enough to help, short enough to read.</p></div>
+      </div>
+    </div>
+    <div class="cs-section">
+      <h2>The solution</h2>
+      <p class="sol-intro">I owned the metric definitions, the anchor examples and the test-case guidance. Partner teams brought the evaluation infrastructure.</p>
+      <div class="sol-grid">
+        <div class="sol"><div class="sol-ill"><svg viewBox="0 0 120 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="14" y="10" width="66" height="32" rx="9"/><path d="M28 42v11l12-11"/><path d="M26 22h30M26 30h20"/><circle class="ink" cx="98" cy="26" r="10"/><path class="ink" d="M93 26l4 4 7-8"/></svg></div><span class="n">01</span><h3>Single-turn scoring</h3><p>Each response is scored on its own, with a definition, a scale and anchor examples.</p><div class="chips"><span class="chip">Readability</span><span class="chip">Completeness</span><span class="chip">Word count</span></div></div>
+        <div class="sol"><div class="sol-ill"><svg viewBox="0 0 120 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="10" y="6" width="44" height="18" rx="7"/><rect x="40" y="24" width="44" height="18" rx="7"/><rect class="ink" x="70" y="42" width="44" height="18" rx="7"/><path d="M54 15h8M84 33h8" stroke-dasharray="2 4"/></svg></div><span class="n">02</span><h3>Multi-turn scoring</h3><p>The same measures applied across a whole conversation, so a reply that is fine alone can still be caught when it fails in context.</p><div class="chips"><span class="chip">Readability</span><span class="chip">Completeness</span><span class="chip">Word count</span></div></div>
+        <div class="sol"><div class="sol-ill"><svg viewBox="0 0 120 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="34" y="10" width="52" height="50" rx="6"/><rect x="50" y="5" width="20" height="9" rx="3"/><path class="ink" d="M42 28l3 3 5-6"/><path d="M56 28h22"/><path class="ink" d="M42 42l3 3 5-6"/><path d="M56 42h18"/></svg></div><span class="n">03</span><h3>Test-case guide</h3><p>How to write a case someone else can run: goal, context, observable criteria and failure modes, with a template.</p></div>
+        <div class="sol"><div class="sol-ill"><svg viewBox="0 0 120 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 50a38 38 0 0176 0"/><path class="ink" d="M60 50l20-20"/><circle cx="60" cy="50" r="4"/><path d="M22 50h76" stroke-dasharray="2 5"/></svg></div><span class="n">04</span><h3>Evaluation procedure</h3><p>Human versus model grading, rater calibration, sample sizes, and reporting that compares across releases.</p></div>
+      </div>
+    </div>
+    <figure class="diagram">
+      <div class="pair">
+        <svg viewBox="0 0 400 320" role="img" aria-label="Illustration of a metric card for completeness: a definition, a five-step scale and two anchor examples" font-family="Inter, system-ui, sans-serif">
+  <rect x="8" y="8" width="384" height="304" rx="18" fill="#FFFFFF" stroke="#E2DFD9" stroke-width="1.5"/>
+  <text x="32" y="50" font-size="19" font-weight="700" fill="#0F0F0F">Completeness</text>
+  <rect x="268" y="32" width="100" height="26" rx="13" fill="none" stroke="#D8D5D0" stroke-width="1.5"/>
+  <text x="318" y="50" font-size="11" letter-spacing="1" text-anchor="middle" fill="#8A857C">SINGLE-TURN</text>
+  <text x="32" y="88" font-size="11" letter-spacing="1.4" fill="#8A857C">DEFINITION</text>
+  <rect x="32" y="98" width="320" height="7" rx="3.5" fill="#E3E0DA"/>
+  <rect x="32" y="113" width="230" height="7" rx="3.5" fill="#E3E0DA"/>
+  <text x="32" y="152" font-size="11" letter-spacing="1.4" fill="#8A857C">SCALE</text>
+  <line x1="52" y1="178" x2="348" y2="178" stroke="#D8D5D0" stroke-width="2"/>
+  <circle cx="52" cy="178" r="10" fill="#fff" stroke="#BDB8AE" stroke-width="2"/>
+  <circle cx="126" cy="178" r="10" fill="#fff" stroke="#BDB8AE" stroke-width="2"/>
+  <circle cx="200" cy="178" r="10" fill="#fff" stroke="#BDB8AE" stroke-width="2"/>
+  <circle cx="274" cy="178" r="10" fill="#B4471F" stroke="#B4471F" stroke-width="2"/>
+  <circle cx="348" cy="178" r="10" fill="#fff" stroke="#BDB8AE" stroke-width="2"/>
+  <g font-size="11" fill="#8A857C" text-anchor="middle"><text x="52" y="206">1</text><text x="126" y="206">2</text><text x="200" y="206">3</text><text x="274" y="206" fill="#B4471F" font-weight="700">4</text><text x="348" y="206">5</text></g>
+  <text x="32" y="236" font-size="11" letter-spacing="1.4" fill="#8A857C">ANCHOR EXAMPLES</text>
+  <rect x="32" y="246" width="158" height="46" rx="10" fill="#F3F1ED"/>
+  <text x="46" y="264" font-size="11" font-weight="700" fill="#5F5F5F">Scores 2</text>
+  <rect x="46" y="272" width="100" height="6" rx="3" fill="#D9D4CB"/>
+  <rect x="202" y="246" width="158" height="46" rx="10" fill="#F3F1ED"/>
+  <text x="216" y="264" font-size="11" font-weight="700" fill="#5F5F5F">Scores 4</text>
+  <rect x="216" y="272" width="100" height="6" rx="3" fill="#D9D4CB"/>
+</svg>
+        <svg viewBox="0 0 400 320" role="img" aria-label="Illustration of a test case template: goal, starting context, observable expected behavior, and the failure mode it catches" font-family="Inter, system-ui, sans-serif">
+  <rect x="8" y="8" width="384" height="304" rx="18" fill="#FFFFFF" stroke="#E2DFD9" stroke-width="1.5"/>
+  <text x="32" y="50" font-size="19" font-weight="700" fill="#0F0F0F">Test case</text>
+  <rect x="274" y="32" width="94" height="26" rx="13" fill="none" stroke="#D8D5D0" stroke-width="1.5"/>
+  <text x="321" y="50" font-size="11" letter-spacing="1" text-anchor="middle" fill="#8A857C">MULTI-TURN</text>
+  <text x="32" y="88" font-size="11" letter-spacing="1.4" fill="#8A857C">USER GOAL</text>
+  <rect x="32" y="98" width="300" height="7" rx="3.5" fill="#E3E0DA"/>
+  <text x="32" y="132" font-size="11" letter-spacing="1.4" fill="#8A857C">STARTING CONTEXT</text>
+  <rect x="32" y="142" width="250" height="7" rx="3.5" fill="#E3E0DA"/>
+  <text x="32" y="176" font-size="11" letter-spacing="1.4" fill="#8A857C">EXPECTED, OBSERVABLE</text>
+  <g fill="none" stroke="#B4471F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="32" y="188" width="14" height="14" rx="3" stroke-width="1.8"/><path d="M35 195l3 3 5-6"/>
+    <rect x="32" y="212" width="14" height="14" rx="3" stroke-width="1.8"/><path d="M35 219l3 3 5-6"/>
+  </g>
+  <rect x="56" y="192" width="230" height="6" rx="3" fill="#E3E0DA"/>
+  <rect x="56" y="216" width="190" height="6" rx="3" fill="#E3E0DA"/>
+  <rect x="32" y="244" width="336" height="48" rx="12" fill="#FFFFFF" stroke="#B4471F" stroke-width="1.8" stroke-dasharray="6 5"/>
+  <text x="48" y="264" font-size="11" letter-spacing="1.4" fill="#B4471F">FAILURE MODE IT CATCHES</text>
+  <rect x="48" y="272" width="170" height="6" rx="3" fill="#E3E0DA"/>
+</svg>
+      </div>
+      <figcaption>Illustration: a metric card with its scale and anchor examples, and a test case anyone on a team can run.</figcaption>
+    </figure>
+    <div class="cs-section">
+      <h2>Impact</h2>
+      <ul>
+        <li>A shared vocabulary for &ldquo;is this agent good,&rdquo; and a repeatable way to answer it.</li>
+        <li>Turns the response quality guideline from advice into something a release can be gated on.</li>
+      </ul>
+    </div>
+    <div class="cs-learned">
+      <h2>What I learned</h2>
+      <p>Defining a metric is a conversation design problem. The hard part is not the scale, it is writing anchor examples so two reasonable people score the same transcript the same way.</p>
+    </div>
+
+    <div class="cs-next">
+      <a href="./case-response-quality.html"><span class="label">Previous</span>High-quality AI responses</a>
+      <a href="./case-agent-studio-skills.html"><span class="label">Next</span>AI Agent Studio skills</a>
+    </div>
+
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div>
+      <h3>Let’s talk.</h3>
+      <div class="foot-note">Sunnyvale, CA</div>
+    </div>
+    <div class="icon-links">
+        <a class="icon-link" href="mailto:edokinfel@gmail.com" aria-label="Email" title="Email"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></a>
+        <a class="icon-link" href="https://www.linkedin.com/in/edosa-leta/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a class="icon-link" href="https://github.com/EdoLeta" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
+      </div>
+  </div>
+</footer>
+
+<script src="./case.js?v=2"></script>
+</body>
+</html>

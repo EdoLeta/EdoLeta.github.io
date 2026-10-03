@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About · Edosa Leta</title>
+<meta name="description" content="Beyond the work: family, my wife, and the things Edosa does for fun." />
+<link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="./site.css?v=40" />
+<style>
+/* About is the off-duty page: a serif voice, and the orange secondary color in motion */
+:root{--tape:rgba(240,138,60,.38);--serif:'Fraunces',Georgia,'Times New Roman',serif;--orange-ink:#C4571A}
+
+/* hero */
+.ab-hero{position:relative;padding-top:calc(var(--s8) + var(--s6));padding-bottom:var(--s7)}
+.ab-eyebrow{display:inline-flex;align-items:center;gap:var(--s2);font-size:var(--fs-label);line-height:var(--lh-label);font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-ink);margin-bottom:var(--s4)}
+.ab-eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--orange);animation:pulse 2.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(240,138,60,.5)}50%{transform:scale(1.15);box-shadow:0 0 0 8px rgba(240,138,60,0)}}
+.ab-hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(44px,7vw,88px);line-height:1.02;letter-spacing:-.03em;max-width:9.5em;position:relative;z-index:1}
+.ab-hero h1 em{font-style:italic;position:relative;white-space:nowrap}
+.ab-hero h1 em::after{content:"";position:absolute;left:-2%;right:-2%;bottom:.04em;height:.2em;z-index:-1;background:var(--orange);opacity:.85;border-radius:3px;transform-origin:left;transform:scaleX(0) rotate(-1deg);animation:swipe .9s var(--ease) .8s forwards}
+@keyframes swipe{to{transform:scaleX(1) rotate(-1deg)}}
+.ab-hero p{font-size:var(--fs-title);line-height:var(--lh-prose);color:var(--body);max-width:30em;margin-top:var(--s5);position:relative;z-index:1}
+.w{display:inline-block;opacity:0;transform:translateY(.35em);animation:wd .7s var(--ease) forwards;animation-delay:calc(.1s + var(--i) * .09s)}
+@keyframes wd{to{opacity:1;transform:none}}
+
+/* the things I do off the clock */
+.loves{display:flex;flex-wrap:wrap;gap:var(--s3);margin-top:var(--s6);position:relative;z-index:1}
+.interest{display:inline-flex;align-items:center;gap:var(--s2);padding:var(--s2) var(--s4) var(--s2) var(--s3);border:1px solid #D3D8D2;border-radius:var(--r-pill);background:rgba(255,255,255,.55);font-size:var(--fs-ui);line-height:var(--lh-ui);color:var(--body);transition:border-color var(--dur-1),background var(--dur-1),transform var(--dur-2) var(--ease)}
+.interest svg{width:20px;height:20px;color:var(--orange-ink);flex-shrink:0;overflow:visible}
+.interest:hover{border-color:var(--orange);background:#fff;transform:translateY(-2px)}
+.interest.gun svg{color:#C8102E}
+.interest.gun:hover{border-color:#C8102E}
+/* tiny hover motion per interest */
+.interest .peak{transform-origin:12px 4px;transition:transform .5s var(--ease)}
+.interest:hover .peak{transform:rotate(-14deg)}
+.interest .wheel{transform-box:fill-box;transform-origin:center;transition:transform .8s var(--ease)}
+.interest:hover .wheel{transform:rotate(360deg)}
+.interest .flag{transform-origin:6px 4px;transition:transform .45s var(--ease)}
+.interest:hover .flag{animation:wave .7s ease-in-out 2}
+@keyframes wave{0%,100%{transform:skewY(0)}50%{transform:skewY(-8deg)}}
+.interest:hover .ball{animation:bounce .6s var(--ease) 1}
+@keyframes bounce{0%,100%{transform:translateY(0)}40%{transform:translateY(-4px)}70%{transform:translateY(0)}85%{transform:translateY(-1.5px)}}
+
+/* a trail profile that draws itself: the long way up, then the downhill */
+.trail{display:block;width:100%;height:auto;margin:var(--s8) 0 var(--s7);overflow:visible}
+.trail .line{fill:none;stroke:var(--orange-ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.6s cubic-bezier(.4,.1,.2,1)}
+.trail.in .line{stroke-dashoffset:0}
+.trail .base{stroke:#CBD1CA;stroke-width:1;stroke-dasharray:2 6}
+.trail .pin{opacity:0;transition:opacity .4s ease 2.3s}
+.trail.in .pin{opacity:1}
+.trail text{font-family:var(--mono);font-size:11px;letter-spacing:.08em;fill:var(--faint)}
+
+/* photo wall */
+.wall{columns:3;column-gap:var(--s6);padding-bottom:var(--s8)}
+.snap{break-inside:avoid;margin:0 0 var(--s7);display:block;position:relative;transform:rotate(var(--r,0deg));transition:transform var(--dur-2) var(--ease)}
+.snap:nth-child(3n+1){--r:-1.6deg}.snap:nth-child(3n+2){--r:1.2deg}.snap:nth-child(3n){--r:-.6deg}
+.snap.drop{opacity:0;transform:translateY(-56px) rotate(calc(var(--r,0deg) * 5))}
+.snap.drop.in{opacity:1;transform:rotate(var(--r,0deg));transition:opacity .5s ease,transform .9s cubic-bezier(.34,1.45,.5,1)}
+.snap.drop.in:hover,.snap:hover{transform:rotate(0) translateY(-4px) scale(1.015);z-index:2;transition:transform var(--dur-2) var(--ease)}
+.snap-card{background:#fff;padding:var(--s3) var(--s3) var(--s4);border-radius:3px;box-shadow:0 10px 24px rgba(60,40,25,.14),0 2px 4px rgba(60,40,25,.08)}
+.snap-img{position:relative;display:block;overflow:hidden;background:#E9E5DE;aspect-ratio:var(--ar,3/4)}
+.snap.land{--ar:4/3}.snap.sq{--ar:1/1}
+.snap-img img,.snap-img video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.snap-img video{display:block;background:#232A26}
+.snap:hover .snap-img img,.snap:hover .snap-img video{transform:scale(1.04)}
+.snap-img img[hidden]{display:none}
+.snap-img .ph-note{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--s1);text-align:center;font-size:var(--fs-small);line-height:var(--lh-small);color:var(--soft);border:1px dashed #CFC8BC;margin:var(--s2)}
+.snap-img .ph-note b{font-family:var(--mono);font-size:var(--fs-label);color:var(--orange-ink);font-weight:500}
+.snap-img img:not([hidden]) ~ .ph-note{display:none}
+.snap figcaption{font-family:var(--serif);font-style:italic;font-size:var(--fs-title);line-height:var(--lh-title);color:var(--body);padding:var(--s3) var(--s1) 0}
+.snap figcaption i{display:inline-block;font-family:var(--mono);font-style:normal;font-size:var(--fs-tag);letter-spacing:.08em;color:var(--orange-ink);background:rgba(240,138,60,.16);border-radius:var(--r-pill);padding:1px var(--s2);margin-right:var(--s2);vertical-align:2px}
+.snap::before{content:"";position:absolute;top:-10px;left:50%;width:84px;height:22px;transform:translateX(-50%) rotate(-2deg);background:var(--tape);z-index:1}
+
+@media(max-width:900px){.wall{columns:2;column-gap:var(--s5)}.ab-hero{padding-top:var(--s7)}}
+@media(max-width:560px){.wall{columns:1}.snap{--r:0deg!important;max-width:420px;margin-left:auto;margin-right:auto}}
+@media(prefers-reduced-motion:reduce){
+  .w,.ab-hero h1 em::after,.snap.drop,.snap.drop.in{animation:none;opacity:1;transform:none;transition:none}
+  .ab-hero h1 em::after{transform:rotate(-1deg)}
+  .snap{transform:rotate(var(--r,0deg))}
+  .ab-eyebrow::before{animation:none}
+  .interest svg *,.interest svg{animation:none!important;transition:none!important}
+  .trail path{animation:none!important;stroke-dashoffset:0!important}
+  .snap:hover{transform:rotate(var(--r,0deg))}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="nav-name" href="./home.html">Edosa Leta<span class="nav-dot"></span></a>
+    <nav class="nav-links">
+      <a href="./work.html">Work</a>
+      <a href="./projects.html">Projects</a>
+      <a class="on" href="./about.html">About</a>
+      <a href="./resume.html">Resume</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="ab-hero shell">
+    <div class="ab-eyebrow">About</div>
+    <h1 aria-label="The part of me that logs off."><span class="w" style="--i:0" aria-hidden="true">The</span> <span class="w" style="--i:1" aria-hidden="true">part</span> <span class="w" style="--i:2" aria-hidden="true">of</span> <span class="w" style="--i:3" aria-hidden="true">me</span> <span class="w" style="--i:4" aria-hidden="true">that</span> <em><span class="w" style="--i:5" aria-hidden="true">logs</span> <span class="w" style="--i:6" aria-hidden="true">off.</span></em></h1>
+    <div class="loves" aria-label="Things I love">
+      <span class="interest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20l7-12 4 6 3-4 6 10z"/><path class="peak" d="M12 4v-3l3 1.2-3 1.2"/></svg>Hiking</span>
+      <span class="interest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="wheel"><circle cx="5.5" cy="16" r="3.5"/></g><g class="wheel"><circle cx="18.5" cy="16" r="3.5"/></g><path d="M5.5 16l4-7h6l3 7M9.5 9l5 7M8 7h3"/></svg>Biking</span>
+      <span class="interest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 22V3"/><g class="flag"><path d="M5 4h14v9H5z"/><path d="M5 4h4.67v4.5H5zM14.33 4H19v4.5h-4.67zM9.67 8.5h4.66V13H9.67z" fill="currentColor" stroke="none"/></g></svg>F1</span>
+      <span class="interest gun"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="ball"><circle cx="12" cy="12" r="9"/><path d="M12 8l3.5 2.5-1.3 4.1H9.8L8.5 10.5z"/><path d="M12 8V3M15.5 10.5l4.5-1.5M14.2 14.6l2.8 3.8M9.8 14.6L7 18.4M8.5 10.5L4 9"/></g></svg>Arsenal, always</span>
+    </div>
+  </section>
+
+
+  <section class="shell">
+    <svg class="trail" id="trail" viewBox="0 0 1000 90" preserveAspectRatio="none" aria-hidden="true">
+      <path class="base" d="M0 84H1000" vector-effect="non-scaling-stroke"/>
+      <path class="line" pathLength="1" vector-effect="non-scaling-stroke" d="M0 80C60 78 90 66 140 58S230 40 290 46 360 70 420 62 520 24 600 18 690 36 740 48 820 74 880 66 960 70 1000 76"/>
+      <g class="pin"><path d="M600 18V2" stroke="var(--orange-ink)" stroke-width="2" stroke-linecap="round"/><path d="M600 2l16 6-16 6z" fill="var(--orange)"/></g>
+    </svg>
+  </section>
+
+  <!--
+    MORE PHOTOS: drop files into assets/about/ as 06.jpg, 07.jpg ... then copy a <figure> below.
+    Class: (none) = portrait, "land" = landscape, "sq" = square. Edit the caption and alt text.
+  -->
+  <section class="shell">
+    <div class="wall">
+      <figure class="snap"><div class="snap-card"><span class="snap-img"><img src="./assets/about/01.jpg" alt="Edosa and his wife laughing together on a boat deck at sunset, an American flag waving behind them" loading="lazy" /></span><figcaption><i>01</i>Golden hour, and she’s the better poser.</figcaption></div></figure>
+      <figure class="snap"><div class="snap-card"><span class="snap-img"><img src="./assets/about/02.jpg" alt="Edosa smiling in sunglasses on a painted horse, green hills and the ocean behind him" loading="lazy" /></span><figcaption><i>02</i>Me, a horse, and a view that needed no filter.</figcaption></div></figure>
+      <figure class="snap"><div class="snap-card"><span class="snap-img"><img src="./assets/about/03.jpg" alt="Edosa sitting on a stone bollard on a pier, pointing out across the water under a big blue sky" loading="lazy" /></span><figcaption><i>03</i>Pointing at the horizon like I own the sea.</figcaption></div></figure>
+      <figure class="snap"><div class="snap-card"><span class="snap-img"><img src="./assets/about/04.jpg" alt="Edosa and his wife in matching white outfits with blue embroidered patterns, posing in a hotel hallway" loading="lazy" /></span><figcaption><i>04</i>Matching fits, serious faces, zero rehearsal.</figcaption></div></figure>
+      <figure class="snap land"><div class="snap-card"><span class="snap-img"><img src="./assets/about/05.jpg" alt="Edosa standing behind a Red Bull Racing Formula 1 car with Oracle branding, parked by the lake at Oracle's campus" loading="lazy" /></span><figcaption><i>05</i>Found the fastest thing on campus.</figcaption></div></figure>
+      <figure class="snap"><div class="snap-card"><span class="snap-img"><video src="./assets/about/video.mp4" poster="./assets/about/video-poster.jpg" muted loop playsinline preload="metadata" aria-label="A short video of Edosa and his wife"></video></span><figcaption><i>06</i>Our best day, on loop.</figcaption></div></figure>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div>
+      <h3>Let’s talk.</h3>
+      <div class="foot-note">Sunnyvale, CA</div>
+    </div>
+    <div class="icon-links">
+        <a class="icon-link" href="mailto:edokinfel@gmail.com" aria-label="Email" title="Email"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></a>
+        <a class="icon-link" href="https://www.linkedin.com/in/edosa-leta/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a class="icon-link" href="https://github.com/EdoLeta" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
+      </div>
+  </div>
+</footer>
+
+<script>
+/* photos drop in as they scroll into view */
+const snaps = document.querySelectorAll('.snap');
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+  snaps.forEach(s => s.classList.add('drop'));
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { const d = [...snaps].indexOf(e.target) % 3 * 120; setTimeout(() => e.target.classList.add('in'), d); io.unobserve(e.target); }
+  }), { threshold: .15 });
+  snaps.forEach(s => io.observe(s));
+}
+
+const trail = document.getElementById('trail');
+if (trail) {
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) trail.classList.add('in');
+  else new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { trail.classList.add('in'); o.disconnect(); } }), { threshold: .6 }).observe(trail);
+}
+
+/* the video autoplays (muted, looping) while on screen and rests when it is not */
+document.querySelectorAll('.snap video').forEach(v => {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) { v.controls = true; return; }
+  new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) v.play().catch(() => { v.controls = true; }); else v.pause();
+  }), { threshold: .4 }).observe(v);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Resume · Edosa Leta</title>
+<meta name="description" content="Resume of Edosa Leta, senior UX designer specializing in conversational AI and generative UI for enterprise products." />
+<link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="./site.css?v=40" />
+<style>
+.rs-head{padding-top:calc(var(--s8) + var(--s6));padding-bottom:var(--s6)}
+.rs-top{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--s6);flex-wrap:wrap}
+.rs-head h1{font-size:clamp(34px,5vw,56px)}
+.rs-meta{font-size:var(--fs-body);line-height:var(--lh-body);color:var(--soft);margin-top:var(--s3)}
+.rs-meta a{color:var(--ink);border-bottom:1px solid var(--line-2);transition:color var(--dur-1),border-color var(--dur-1)}
+.rs-meta a:hover{color:var(--accent);border-color:var(--accent)}
+.btn{display:inline-flex;align-items:center;gap:var(--s2);padding:var(--s3) var(--s5);border-radius:var(--r-pill);background:var(--ink);color:#fff;font-size:var(--fs-ui);line-height:var(--lh-ui);font-weight:500;transition:background var(--dur-1),transform var(--dur-2) var(--ease)}
+.btn:hover{background:var(--accent);transform:translateY(-2px)}
+.btn svg{width:16px;height:16px}
+.rs-body{padding-bottom:calc(var(--s8) + var(--s6))}
+.rs-sec{display:grid;grid-template-columns:180px minmax(0,1fr);gap:var(--s6);padding:var(--s6) 0;border-top:1px solid var(--card-line)}
+.rs-sec > h2{font-size:var(--fs-label);line-height:var(--lh-label);font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);padding-top:var(--s1)}
+.rs-sum{font-size:var(--fs-title);line-height:var(--lh-prose);color:var(--ink);max-width:40em}
+.job + .job{margin-top:var(--s6)}
+.job-h{display:flex;justify-content:space-between;gap:var(--s4);align-items:flex-start;flex-wrap:wrap}
+.job-h h3{font-size:var(--fs-title);line-height:var(--lh-title);font-weight:600;letter-spacing:-.015em}
+.job-h span{font-size:var(--fs-small);line-height:var(--lh-small);color:var(--soft)}
+.job-h time{font-size:var(--fs-small);line-height:var(--lh-small);color:var(--faint);white-space:nowrap}
+.job ul{list-style:none;margin-top:var(--s3)}
+.job li{position:relative;padding-left:var(--s5);font-size:var(--fs-body);line-height:var(--lh-body);color:var(--body);margin-bottom:var(--s2);max-width:46em}
+.job li::before{content:'';position:absolute;left:var(--s1);top:10px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.school + .school{margin-top:var(--s5)}
+.school h3{font-size:var(--fs-title);line-height:var(--lh-title);font-weight:600;letter-spacing:-.015em}
+.school p{font-size:var(--fs-small);line-height:var(--lh-small);color:var(--soft);margin-top:var(--s1);max-width:46em}
+.skills{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.skills span{font-size:var(--fs-ui);line-height:var(--lh-ui);padding:var(--s1) var(--s3);border:1px solid var(--card-line);border-radius:var(--r-pill);background:var(--card);color:var(--body)}
+.tools{font-size:var(--fs-small);line-height:var(--lh-small);color:var(--soft);margin-top:var(--s4)}
+.tools b{color:var(--ink);font-weight:600}
+@media(max-width:800px){.rs-sec{grid-template-columns:1fr;gap:var(--s4)}.rs-head{padding-top:var(--s7)}}
+@media print{
+  .nav,.foot,.btn{display:none}
+  body{background:#fff}
+  .rs-head{padding-top:0}
+  .rs-sec{break-inside:avoid;padding:var(--s4) 0}
+}
+
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="nav-name" href="./home.html">Edosa Leta<span class="nav-dot"></span></a>
+    <nav class="nav-links">
+      <a href="./work.html">Work</a>
+      <a href="./projects.html">Projects</a>
+      <a href="./about.html">About</a>
+      <a class="on" href="./resume.html">Resume</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="rs-head shell">
+    <div class="rs-top">
+      <div>
+        <h1>Edosa Leta</h1>
+        <p class="rs-meta">Senior UX Designer · Sunnyvale, CA · <a href="mailto:edokinfel@gmail.com">edokinfel@gmail.com</a></p>
+      </div>
+      <a class="btn" href="./assets/Edosa_Leta_Resume.pdf" download="Edosa_Leta_Resume.pdf">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>
+        Download PDF
+      </a>
+    </div>
+  </section>
+
+  <section class="rs-body shell">
+    <div class="rs-sec">
+      <h2>Summary</h2>
+      <p class="rs-sum">Senior UX Designer specializing in conversational AI and generative UI for enterprise products. Combines a CS/NLP background with prompt engineering and design systems governance to build the skill frameworks and component contracts that keep AI-generated interfaces accessible, on-brand, and structurally reliable at scale.</p>
+    </div>
+
+    <div class="rs-sec">
+      <h2>Experience</h2>
+      <div>
+      <div class="job">
+        <div class="job-h"><div><h3>Senior User Experience Designer · IC3</h3><span>Oracle · Redwood City, CA</span></div><time>May 2023 to present</time></div>
+        <ul>
+          <li>Defined Oracle Redwood’s AI interaction pattern library, establishing guidelines for response formatting and trust standards adopted by product teams.</li>
+          <li>Designed a versioned skill-governance system for enterprise applications using an eight-intent taxonomy and automated lint gates, ensuring accessible UI.</li>
+          <li>Created user flows and interaction patterns for multi-step AI agents, collaborating with engineering for precise implementation.</li>
+          <li>Developed an AI accessibility agent based on Oracle’s Redwood guide, leading research on bias across demographics to inform inclusive design.</li>
+          <li>Published agent evaluation guidelines addressing task completion, response quality, and failure modes, giving teams effective quality measurement frameworks.</li>
+          <li>Contributed interaction patterns and component guidelines for chat and Oracle AI Agent Studio, integrating them into the Redwood design system for broader reuse.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="job-h"><div><h3>User Experience Designer · Intern</h3><span>Oracle · Redwood City, CA</span></div><time>May to Aug 2022</time></div>
+        <ul>
+          <li>Conducted 12 one-hour user research sessions using Oracle’s digital assistant, uncovering insights into conversational interaction patterns to inform design improvements.</li>
+          <li>Proposed and designed a research concept for a digital assistant that includes diverse English-speaking user groups, ensuring broader user accessibility.</li>
+          <li>Researched unconscious bias in conversational AI to identify gaps and propose mitigations for bias in digital assistant models, enhancing model fairness.</li>
+        </ul>
+      </div>
+      </div>
+    </div>
+
+    <div class="rs-sec">
+      <h2>Projects</h2>
+      <div>
+      <div class="job">
+        <div class="job-h"><div><h3>English–Amharic neural machine translation</h3><span>Capstone project · African Leadership University</span></div><time>Dec 2020 to May 2021</time></div>
+        <ul>
+          <li>Trained and iterated an English–Amharic neural machine translation model using JoeyNMT across 20+ training runs (about 6 hours each).</li>
+          <li>Collected and translated about 10,000 entries from a source dataset, improving translation accuracy by 5% on the BLEU score.</li>
+        </ul>
+      </div>
+      </div>
+    </div>
+
+    <div class="rs-sec">
+      <h2>Education</h2>
+      <div>
+        <div class="school"><h3>M.S. in Computer Science</h3><p>University of Maryland, Baltimore County · 2023</p><p>Coursework: Human-Centered Computing, Design Thinking, Design and Analysis of Algorithms, Advanced Computer Networks</p></div>
+        <div class="school"><h3>B.S. in Computer Science</h3><p>African Leadership University, Kigali · 2021</p></div>
+      </div>
+    </div>
+
+    <div class="rs-sec">
+      <h2>Skills</h2>
+      <div>
+        <div class="skills">
+          <span>AI interaction design</span><span>Conversational AI governance</span><span>Generative AI prompt engineering</span><span>User research methodologies</span><span>Product management</span><span>Usability testing</span><span>Design patterns</span>
+        </div>
+        <p class="tools"><b>Tools:</b> Figma, Jira, Oracle AI Agent Studio, Codex</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div>
+      <h3>Let’s talk.</h3>
+      <div class="foot-note">Sunnyvale, CA</div>
+    </div>
+    <div class="icon-links">
+        <a class="icon-link" href="mailto:edokinfel@gmail.com" aria-label="Email" title="Email"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></a>
+        <a class="icon-link" href="https://www.linkedin.com/in/edosa-leta/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a class="icon-link" href="https://github.com/EdoLeta" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
+      </div>
+  </div>
+</footer>
+
+</body>
+</html>

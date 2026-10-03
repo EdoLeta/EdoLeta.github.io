@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="A metric card: definition, scoring scale, and anchor examples">
+  <rect width="320" height="200" fill="#EFEDE9"/>
+  <g font-family="Inter, system-ui, -apple-system, sans-serif">
+    <!-- the card -->
+    <rect x="34" y="22" width="252" height="156" rx="10" fill="#FFFFFF" stroke="#E2DFD9"/>
+
+    <!-- title row -->
+    <rect x="50" y="38" width="86" height="8" rx="4" fill="#0F0F0F"/>
+    <rect x="236" y="37" width="34" height="10" rx="5" fill="none" stroke="#D8D5D0"/>
+
+    <!-- definition -->
+    <text x="50" y="68" font-size="7" letter-spacing="0.8" fill="#8A857C">DEFINITION</text>
+    <rect x="50" y="75" width="206" height="4" rx="2" fill="#E3E0DA"/>
+    <rect x="50" y="85" width="150" height="4" rx="2" fill="#E3E0DA"/>
+
+    <!-- scale -->
+    <text x="50" y="108" font-size="7" letter-spacing="0.8" fill="#8A857C">SCALE</text>
+    <line x1="58" y1="121" x2="248" y2="121" stroke="#D8D5D0" stroke-width="1.4"/>
+    <circle cx="58"  cy="121" r="6" fill="#fff" stroke="#BDB8AE" stroke-width="1.4"/>
+    <circle cx="105.5" cy="121" r="6" fill="#fff" stroke="#BDB8AE" stroke-width="1.4"/>
+    <circle cx="153" cy="121" r="6" fill="#fff" stroke="#BDB8AE" stroke-width="1.4"/>
+    <circle cx="200.5" cy="121" r="6" fill="#B4471F" stroke="#B4471F" stroke-width="1.4"/>
+    <circle cx="248" cy="121" r="6" fill="#fff" stroke="#BDB8AE" stroke-width="1.4"/>
+
+    <!-- anchors -->
+    <text x="50" y="146" font-size="7" letter-spacing="0.8" fill="#8A857C">ANCHORS</text>
+    <rect x="50"  y="152" width="98" height="16" rx="4" fill="#F4F2EE"/>
+    <rect x="57"  y="158" width="62" height="4" rx="2" fill="#D6D2CA"/>
+    <rect x="158" y="152" width="98" height="16" rx="4" fill="#F4F2EE"/>
+    <rect x="165" y="158" width="48" height="4" rx="2" fill="#D6D2CA"/>
+  </g>
+</svg>

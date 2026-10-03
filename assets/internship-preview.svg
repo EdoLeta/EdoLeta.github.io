@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="Varied utterances, twelve participants, and a guidelines checklist">
+  <rect width="320" height="200" fill="#EFEDE9"/>
+  <g font-family="Inter, system-ui, -apple-system, sans-serif">
+    <rect x="22" y="30" width="116" height="30" rx="10" fill="#FFFFFF" stroke="#E2DFD9"/>
+    <rect x="34" y="42" width="70" height="5" rx="2.5" fill="#E3E0DA"/>
+    <rect x="52" y="70" width="116" height="30" rx="10" fill="#0F0F0F"/>
+    <rect x="64" y="82" width="74" height="5" rx="2.5" fill="#fff" opacity=".8"/>
+    <rect x="22" y="110" width="104" height="30" rx="10" fill="#FFFFFF" stroke="#B4471F" stroke-width="1.6"/>
+    <rect x="34" y="122" width="62" height="5" rx="2.5" fill="#E3E0DA"/>
+    <rect x="182" y="30" width="116" height="140" rx="12" fill="#FFFFFF" stroke="#E2DFD9"/>
+    <g fill="#ECE9E3">
+      <circle cx="206" cy="60" r="8"/><circle cx="234" cy="60" r="8"/><circle cx="262" cy="60" r="8"/><circle cx="282" cy="60" r="0"/>
+      <circle cx="206" cy="90" r="8"/><circle cx="234" cy="90" r="8"/><circle cx="262" cy="90" r="8"/>
+      <circle cx="206" cy="120" r="8"/><circle cx="234" cy="120" r="8"/>
+    </g>
+    <circle cx="262" cy="120" r="8" fill="#B4471F"/>
+    <g fill="none" stroke="#B4471F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M200 148l4 4 7-8"/><path d="M200 160l4 4 7-8" opacity="0"/>
+    </g>
+    <rect x="218" y="146" width="62" height="5" rx="2.5" fill="#E3E0DA"/>
+  </g>
+</svg>
