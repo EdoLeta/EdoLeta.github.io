@@ -60,24 +60,14 @@
 .ab-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:var(--s4);align-items:start}
 .ab-k{font-size:var(--fs-label);line-height:var(--lh-label);letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--orange-ink);padding-top:var(--s1)}
 .ab-row .loves{margin-top:0;flex-wrap:wrap}
-.ab-hero .ab-line{font-size:var(--fs-title);line-height:var(--lh-title);color:var(--body);margin-top:0;max-width:none}
+.ab-hero .ab-line{font-size:var(--fs-title);line-height:var(--lh-prose);color:var(--body);margin-top:0;max-width:34em}
 .ab-line b{color:var(--ink);font-weight:600}
 .langs{list-style:none;display:flex;flex-wrap:wrap;gap:var(--s2)}
 .langs li{padding:var(--s2) var(--s4);border:1px solid #D3D8D2;border-radius:var(--r-pill);background:rgba(255,255,255,.55);font-size:var(--fs-ui);line-height:var(--lh-ui);color:var(--body)}
-/* passport-style stamps for the places I have lived */
-.stamps{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,116px));gap:var(--s4);margin:0;padding:0}
-.stamp{position:relative;aspect-ratio:1;border-radius:50%;border:2px solid var(--orange-ink);color:var(--orange-ink);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
-  transform:rotate(var(--r,0deg));opacity:0;animation:stampin .55s cubic-bezier(.3,1.5,.5,1) forwards;animation-delay:calc(.35s + var(--d,0) * .35s)}
-.stamp::before{content:"";position:absolute;inset:6px;border-radius:50%;border:1px dashed currentColor;opacity:.55}
-.stamp b{font-family:var(--serif);font-weight:500;font-size:clamp(10.5px,2.9vw,18px);line-height:1.1;letter-spacing:-.02em;color:var(--orange-ink)}
-.stamp span{margin-top:4px;font-size:clamp(8.5px,2.2vw,10.5px);letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--orange-ink);opacity:.85}
-.stamp.now{background:var(--orange);border-color:var(--orange-ink);color:#2A1608}
-.stamp.now b,.stamp.now span{color:#2A1608;opacity:1}
-@keyframes stampin{from{opacity:0;transform:rotate(calc(var(--r,0deg) - 10deg)) scale(1.35)}to{opacity:.92;transform:rotate(var(--r,0deg)) scale(1)}}
 .interest .note{transform-origin:12px 18px;transition:transform .5s var(--ease)}
 .interest:hover .note{transform:rotate(-8deg) translateY(-1px)}
 @media(max-width:560px){.ab-row{grid-template-columns:minmax(0,1fr);gap:var(--s2)}.ab-k{padding-top:0}}
-@media(prefers-reduced-motion:reduce){.stamp{animation:none;opacity:.92}.interest .note{transition:none}}
+@media(prefers-reduced-motion:reduce){.interest .note{transition:none}}
 
 /* photo wall */
 .wall{columns:3;column-gap:var(--s6);padding-bottom:var(--s8)}
@@ -133,17 +123,8 @@
     <h1 aria-label="The part of me that logs off."><span class="w" style="--i:0" aria-hidden="true">The</span> <span class="w" style="--i:1" aria-hidden="true">part</span> <span class="w" style="--i:2" aria-hidden="true">of</span> <span class="w" style="--i:3" aria-hidden="true">me</span> <span class="w" style="--i:4" aria-hidden="true">that</span> <em><span class="w" style="--i:5" aria-hidden="true">logs</span> <span class="w" style="--i:6" aria-hidden="true">off.</span></em></h1>
     <div class="ab-rows">
       <div class="ab-row">
-        <h2 class="ab-k">Where I&rsquo;ve lived</h2>
-        <ol class="stamps" aria-label="Places I have lived, in order">
-          <li class="stamp" style="--r:-6deg;--d:0"><b>Ethiopia</b><span>Born</span></li>
-          <li class="stamp" style="--r:4deg;--d:1"><b>Rwanda</b><span>Lived</span></li>
-          <li class="stamp" style="--r:-3deg;--d:2"><b>Maryland</b><span>Lived</span></li>
-          <li class="stamp now" style="--r:5deg;--d:3"><b>California</b><span>Now</span></li>
-        </ol>
-      </div>
-      <div class="ab-row">
         <h2 class="ab-k">About me</h2>
-        <p class="ab-line">Married. I speak <b>Amharic</b>, <b>Afan Oromo</b> and <b>English</b>.</p>
+        <p class="ab-line">Born in <b>Ethiopia</b>. Lived in <b>Rwanda</b> and <b>Maryland</b>, and now in <b>California</b>. Married. I speak <b>Amharic</b>, <b>Afan Oromo</b> and <b>English</b>.</p>
       </div>
       <div class="ab-row">
         <h2 class="ab-k">I love</h2>
