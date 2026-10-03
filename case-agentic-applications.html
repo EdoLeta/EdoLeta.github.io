@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="./site.css?v=44" />
+<link rel="stylesheet" href="./site.css?v=45" />
 </head>
 <body>
 
@@ -44,23 +44,34 @@
 
     <div class="cs-section">
       <h2>The problem</h2>
-      <p>An agent can now be handed a task and come back with a finished result: an analysis, a briefing, a deck. But when the model decides both what the answer says and how it looks, the same question gets a table one time and paragraphs the next, key numbers get buried, and colors and type drift off brand.</p>
-      <p>For customers who forward these results to their own leadership, &ldquo;usually right&rdquo; is not good enough.</p>
+      <p>An agent can now be handed a task and come back with a finished result: an analysis, a briefing, a deck. But when the model decides both what the answer says and how it looks, the same question gets a table one time and paragraphs the next, key numbers get buried, and colors and type drift off brand. For customers who forward these results to their own leadership, &ldquo;usually right&rdquo; is not good enough.</p>
       <ul>
-        <li><b>Inconsistent structure.</b> Users could not predict where the answer or the key number would be.</li>
-        <li><b>Brand and accessibility drift.</b> Output did not reliably look like Oracle or meet accessibility rules.</li>
-        <li><b>No shared standard.</b> Each agent team solved layout on its own.</li>
+        <li><b>Inconsistent layout.</b> Generated pages looked different from one answer to the next.</li>
+        <li><b>No guidance teams would use.</b> Teams do not want to read a whole spec, so there was no usable UI and UX guidance.</li>
+        <li><b>Components went unused.</b> The AI generates output outside the app, so Redwood components and best practices were not applied.</li>
+        <li><b>Intent to component.</b> Someone had to decide how a user&rsquo;s intent maps to the right component.</li>
       </ul>
     </div>
     <div class="cs-section">
       <h2>The solution</h2>
-      <p class="sol-intro"><b>The agent declares intent. The product owns rendering.</b> The model says what kind of answer this is and what each piece means. A governed layer turns that into the right Redwood components.</p>
+      <p class="sol-intro"><b>The agent declares intent. The product owns rendering.</b> The model says what kind of answer this is and what each piece means. A governed layer turns that into the right Redwood components. I built the guidance that makes that work.</p>
       <div class="sol-grid">
-        <div class="sol"><span class="n">01</span><h3>A common structure</h3><p>Every outcome leads with the answer, with evidence below and clear rules for which component fits which content. I wrote these as prompt skills.</p></div>
-        <div class="sol"><span class="n">02</span><h3>One visual standard, for models</h3><p>I translated Redwood’s tokens, type, spacing and accessibility rules into skills for pages, decks, documents and charts, including customer-branded decks.</p></div>
-        <div class="sol"><span class="n">03</span><h3>Design to runtime</h3><p>As design engineer, I turned the design system into what the app actually runs: the model declares intent, and a governed layer renders it.</p></div>
-        <div class="sol"><span class="n">04</span><h3>Rules enforced in code</h3><p>Known components use widget JSON checked against a schema and lint gates, so consistency does not depend on the model behaving.</p></div>
+        <div class="sol"><span class="n">01</span><h3>A visual style guide</h3><p>I wrote a style guide for the design system in a form a model can follow: tokens, type, spacing and accessibility rules for pages, decks, documents and charts.</p></div>
+        <div class="sol"><span class="n">02</span><h3>Best practices from internal docs</h3><p>I turned long internal specs into short best practices, including which component fits which kind of content, so teams get the guidance without reading the spec.</p></div>
+        <div class="sol"><span class="n">03</span><h3>System prompts and skills, with assets</h3><p>All of it is packaged as system prompts and skills, with assets, so any team can use it and build the experience they want with the same look and feel.</p></div>
+        <div class="sol"><span class="n">04</span><h3>Design to runtime</h3><p>As design engineer, I carried the design system into what the app runs. For known components the model emits widget JSON, checked against a schema and lint gates, so consistency does not depend on the model behaving.</p></div>
       </div>
+    </div>
+
+    <div class="cs-section">
+      <h2>My value offering</h2>
+      <ul class="feat">
+        <li><b>Token optimization.</b> Rules that need no model sit in schema and code, so less rides along in every prompt.</li>
+        <li><b>Reusable across teams.</b> The same skills serve different teams without a rewrite.</li>
+        <li><b>One central place.</b> The style guide, best practices and skills live together.</li>
+        <li><b>Rapid prototypes.</b> Quick prototypes show the effect of the guidance before anything is built.</li>
+      </ul>
+    </div>
     </div>
     <div class="cs-section">
       <h2>The system</h2>
@@ -85,8 +96,7 @@
     </div>
 
     <div class="cs-section">
-      <h2 data-toc="Decision in practice">Decision in practice</h2>
-      <p class="dp-label">Illustrative example using sample data</p>
+      <h2>Example</h2>
       <h3 class="dp-title">Which invoices are overdue?</h3>
       <p>A finance user asks a fictional question about sample invoices. The same question can come back in very different shapes.</p>
       <div class="dp-steps">

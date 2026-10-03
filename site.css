@@ -403,8 +403,6 @@ a.pcard:hover .status i{transform:scale(1.5)}
 
 
 /* ---------- decision in practice + evidence of impact ---------- */
-.dp-label{display:inline-block;margin-top:var(--s2);padding:2px var(--s3);border:1px dashed var(--line-2);border-radius:var(--r-sm);
-  font-size:var(--fs-label);line-height:var(--lh-label);font-weight:600;color:var(--soft);background:var(--paper)}
 .cs-section h3.dp-title{font-size:var(--fs-title);line-height:var(--lh-title);font-weight:600;letter-spacing:-.015em;margin-top:var(--s5)}
 .dp-steps{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s3);margin-top:var(--s4);counter-reset:dp}
 .dp-panel{min-width:0;position:relative;padding:var(--s5);border:1px solid var(--card-line);border-radius:var(--r-lg);background:var(--grain),var(--card)}
