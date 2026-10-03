@@ -56,10 +56,12 @@
 
 /* about me */
 .ab-bio{font-size:var(--fs-title);line-height:var(--lh-prose);color:var(--body);max-width:34em;margin-top:var(--s5);position:relative;z-index:1}
-.ab-rows{margin-top:var(--s7);display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s5);max-width:720px;position:relative;z-index:1}
+.ab-rows{margin-top:var(--s7);display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s6);max-width:880px;position:relative;z-index:1}
 .ab-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:var(--s4);align-items:start}
-.ab-k{font-size:var(--fs-label);line-height:var(--lh-label);letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--orange-ink);padding-top:var(--s2)}
-.ab-row .loves{margin-top:0}
+.ab-k{font-size:var(--fs-label);line-height:var(--lh-label);letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--orange-ink);padding-top:var(--s1)}
+.ab-row .loves{margin-top:0;flex-wrap:wrap}
+.ab-hero .ab-line{font-size:var(--fs-title);line-height:var(--lh-title);color:var(--body);margin-top:0;max-width:none}
+.ab-line b{color:var(--ink);font-weight:600}
 .langs{list-style:none;display:flex;flex-wrap:wrap;gap:var(--s2)}
 .langs li{padding:var(--s2) var(--s4);border:1px solid #D3D8D2;border-radius:var(--r-pill);background:rgba(255,255,255,.55);font-size:var(--fs-ui);line-height:var(--lh-ui);color:var(--body)}
 .route{list-style:none;display:flex;margin:0;padding:0}
@@ -139,12 +141,8 @@
         </ol>
       </div>
       <div class="ab-row">
-        <h2 class="ab-k">I speak</h2>
-        <ul class="langs"><li>Amharic</li><li>Afan Oromo</li><li>English</li></ul>
-      </div>
-      <div class="ab-row">
-        <h2 class="ab-k">At home</h2>
-        <ul class="langs"><li>Married</li></ul>
+        <h2 class="ab-k">About me</h2>
+        <p class="ab-line">Married. I speak <b>Amharic</b>, <b>Afan Oromo</b> and <b>English</b>.</p>
       </div>
       <div class="ab-row">
         <h2 class="ab-k">I love</h2>
