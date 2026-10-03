@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="./site.css?v=45" />
+<link rel="stylesheet" href="./site.css?v=46" />
 </head>
 <body>
 
@@ -80,36 +80,6 @@
       <p>Visit <a class="cs-link" href="https://www.kyfarmsethiopia.com/store" target="_blank" rel="noopener">kyfarmsethiopia.com</a>.</p>
     </div>
     <div class="cs-section">
-      <h2>Example</h2>
-      <h3 class="dp-title">Logging a honey harvest with no signal</h3>
-      <p>A realistic field task, using sample data: a family member records a harvest where there is no connection.</p>
-      <div class="dp-steps">
-      <section class="dp-panel before">
-        <h4>Input</h4>
-        <p>The user fills in a short form on their phone.</p>
-        <div class="dp-mini">
-          <div><h5>Hive</h5><p>Hive 2</p></div>
-          <div><h5>Harvested</h5><p>8 kg, 3 jars</p></div>
-        </div>
-      </section>
-      <section class="dp-panel decision">
-        <h4>My decision: write locally first, sync later</h4>
-        <p>Every write goes to a queue on the phone first, so nobody waits for a connection to write something down. The screen confirms the save straight away.</p>
-        <pre tabindex="0" aria-label="Sample offline queue record"><code>queue.add({
-  table: "harvests",
-  payload: { hive: "Hive 2", kg: 8, jars: 3 },
-  createdAt: "2026-01-15T07:42"   // sample
-})</code></pre>
-        <p class="dp-note">Banner: &ldquo;Saved on this phone. 1 waiting to sync.&rdquo;</p>
-      </section>
-      <section class="dp-panel after">
-        <h4>Synchronized</h4>
-        <p>When the signal returns, the queued record is sent to the farm&rsquo;s database and the banner clears. The same entry is then in the shared farm records.</p>
-      </section>
-      </div>
-      <p class="dp-role"><b>My role.</b> I designed and built this end to end, as the only designer and developer.</p>
-    </div>
-    <div class="cs-section">
       <h2 data-toc="How it is built">How it is built</h2>
       <ul>
         <li><b>Front end:</b> Next.js 15 with TypeScript and Tailwind, in Fraunces and Manrope.</li>
@@ -121,16 +91,9 @@
       </ul>
     </div>
 
-        <div class="cs-section">
-      <h2 data-toc="Evidence of impact">Evidence of impact</h2>
-      <ul class="dp-ev">
-        <li><span class="ev-tag ship">Shipped / reach</span><span>The mobile app is the farm&rsquo;s own tool, used by the four family members who run it, and the public website is at kyfarmsethiopia.com.</span></li>
-        <li><span class="ev-tag illus">Illustrative</span><span>The harvest entry above uses sample data to show the offline flow. It is not a real record.</span></li>
-      </ul>
-      <p class="ev-legend">Every claim is labeled: where the work ships, what was observed, what was measured, or what is illustrative.</p>
-    </div>
-    <div class="cs-next">
+        <div class="cs-next">
       <a href="./projects.html"><span class="label">Back to</span>Projects</a>
+      <a href="./case-sesame-street.html"><span class="label">Next</span>Sesame Street, in Amharic</a>
     </div>
   </section>
 </main>
