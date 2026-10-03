@@ -54,6 +54,28 @@
 .trail.in .pin{opacity:1}
 .trail text{font-family:var(--mono);font-size:11px;letter-spacing:.08em;fill:var(--faint)}
 
+/* about me */
+.ab-bio{font-size:var(--fs-title);line-height:var(--lh-prose);color:var(--body);max-width:34em;margin-top:var(--s5);position:relative;z-index:1}
+.ab-rows{margin-top:var(--s6);display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s5);max-width:720px;position:relative;z-index:1}
+.ab-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:var(--s4);align-items:start}
+.ab-k{font-size:var(--fs-label);line-height:var(--lh-label);letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--orange-ink);padding-top:var(--s2)}
+.ab-row .loves{margin-top:0}
+.langs{list-style:none;display:flex;flex-wrap:wrap;gap:var(--s2)}
+.langs li{padding:var(--s2) var(--s4);border:1px solid #D3D8D2;border-radius:var(--r-pill);background:rgba(255,255,255,.55);font-size:var(--fs-ui);line-height:var(--lh-ui);color:var(--body)}
+.route{list-style:none;display:flex;margin:0;padding:0}
+.route li{position:relative;flex:1 1 0;min-width:0;padding-top:22px}
+.route li::before{content:"";position:absolute;top:0;left:0;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--orange-ink)}
+.route li.now::before{background:var(--orange);border-color:var(--orange-ink);box-shadow:0 0 0 4px rgba(240,138,60,.25)}
+.route li:not(:last-child)::after{content:"";position:absolute;top:5px;left:18px;right:6px;height:2px;border-radius:2px;background:var(--orange);opacity:.7;transform-origin:left;transform:scaleX(0);animation:routeline .9s var(--ease) forwards;animation-delay:calc(.5s + var(--n,0) * .35s)}
+.route li:nth-child(1){--n:0}.route li:nth-child(2){--n:1}.route li:nth-child(3){--n:2}
+@keyframes routeline{to{transform:scaleX(1)}}
+.route b{display:block;font-size:var(--fs-body);line-height:var(--lh-body);font-weight:600;color:var(--ink)}
+.route span{display:block;font-size:var(--fs-label);line-height:var(--lh-label);color:var(--soft)}
+.interest .note{transform-origin:12px 18px;transition:transform .5s var(--ease)}
+.interest:hover .note{transform:rotate(-8deg) translateY(-1px)}
+@media(max-width:560px){.ab-row{grid-template-columns:minmax(0,1fr);gap:var(--s2)}.ab-k{padding-top:0}.route b{font-size:var(--fs-ui)}}
+@media(prefers-reduced-motion:reduce){.route li:not(:last-child)::after{animation:none;transform:none}.interest .note{transition:none}}
+
 /* photo wall */
 .wall{columns:3;column-gap:var(--s6);padding-bottom:var(--s8)}
 .snap{break-inside:avoid;margin:0 0 var(--s7);display:block;position:relative;transform:rotate(var(--r,0deg));transition:transform var(--dur-2) var(--ease)}
@@ -106,11 +128,32 @@
   <section class="ab-hero shell">
     <div class="ab-eyebrow">About</div>
     <h1 aria-label="The part of me that logs off."><span class="w" style="--i:0" aria-hidden="true">The</span> <span class="w" style="--i:1" aria-hidden="true">part</span> <span class="w" style="--i:2" aria-hidden="true">of</span> <span class="w" style="--i:3" aria-hidden="true">me</span> <span class="w" style="--i:4" aria-hidden="true">that</span> <em><span class="w" style="--i:5" aria-hidden="true">logs</span> <span class="w" style="--i:6" aria-hidden="true">off.</span></em></h1>
+    <p class="ab-bio">I was born in Ethiopia and lived in Rwanda and Maryland before moving to California. I&rsquo;m married, and I speak three languages. Outside of work you will find me outdoors, on a bike, watching Arsenal, or listening to gospel music.</p>
+
+    <div class="ab-rows">
+      <div class="ab-row">
+        <h2 class="ab-k">Where I&rsquo;ve lived</h2>
+        <ol class="route" aria-label="Places I have lived, in order">
+          <li><b>Ethiopia</b><span>Born</span></li>
+          <li><b>Rwanda</b><span>Lived</span></li>
+          <li><b>Maryland</b><span>Lived</span></li>
+          <li class="now"><b>California</b><span>Now</span></li>
+        </ol>
+      </div>
+      <div class="ab-row">
+        <h2 class="ab-k">I speak</h2>
+        <ul class="langs"><li>Amharic</li><li>Afan Oromo</li><li>English</li></ul>
+      </div>
+      <div class="ab-row">
+        <h2 class="ab-k">I love</h2>
     <div class="loves" aria-label="Things I love">
-      <span class="interest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20l7-12 4 6 3-4 6 10z"/><path class="peak" d="M12 4v-3l3 1.2-3 1.2"/></svg>Hiking</span>
+      <span class="interest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20l7-12 4 6 3-4 6 10z"/><path class="peak" d="M12 4v-3l3 1.2-3 1.2"/></svg>Outdoors</span>
       <span class="interest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="wheel"><circle cx="5.5" cy="16" r="3.5"/></g><g class="wheel"><circle cx="18.5" cy="16" r="3.5"/></g><path d="M5.5 16l4-7h6l3 7M9.5 9l5 7M8 7h3"/></svg>Biking</span>
       <span class="interest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 22V3"/><g class="flag"><path d="M5 4h14v9H5z"/><path d="M5 4h4.67v4.5H5zM14.33 4H19v4.5h-4.67zM9.67 8.5h4.66V13H9.67z" fill="currentColor" stroke="none"/></g></svg>F1</span>
       <span class="interest gun"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="ball"><circle cx="12" cy="12" r="9"/><path d="M12 8l3.5 2.5-1.3 4.1H9.8L8.5 10.5z"/><path d="M12 8V3M15.5 10.5l4.5-1.5M14.2 14.6l2.8 3.8M9.8 14.6L7 18.4M8.5 10.5L4 9"/></g></svg>Arsenal, always</span>
+      <span class="interest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="note"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></g></svg>Gospel music</span>
+    </div>
+      </div>
     </div>
   </section>
 
