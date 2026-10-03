@@ -388,6 +388,14 @@ a.pcard:hover .status i{transform:scale(1.5)}
 .pic{margin:var(--s5) 0 0}
 .pic img{display:block;width:100%;height:auto;border-radius:var(--r-lg);border:1px solid var(--card-line)}
 .pic figcaption{font-size:var(--fs-small);line-height:var(--lh-small);color:var(--faint);margin-top:var(--s2)}
+.mask-wrap{position:relative}
+.mask-wrap img{border-radius:var(--r-lg)}
+.mask-note{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:max-content;max-width:calc(100% - var(--s5));
+  padding:var(--s2) var(--s4);border-radius:var(--r-pill);background:rgba(255,255,255,.88);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  font-size:var(--fs-label);line-height:var(--lh-label);font-weight:600;letter-spacing:.02em;color:var(--ink);text-align:center;
+}
 .pics.two{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4);margin-top:var(--s5)}
 .pics .pic{margin:0}
 .cs-section .pic + ul{margin-top:var(--s5)}
