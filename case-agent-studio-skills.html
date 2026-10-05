@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="./site.css?v=47" />
+<link rel="stylesheet" href="./site.css?v=48" />
 </head>
 <body>
 
@@ -38,6 +38,10 @@
       <div><dt>Platform</dt><dd>Oracle AI Agent Studio</dd></div>
       <div><dt>Type</dt><dd>Skills, a Chrome extension, and layering design</dd></div>
     </dl>
+    <div class="own">
+      <div><h4>I owned</h4><ul><li>The skills: bias handling, voice and tone, output formatting</li><li>How the skills layer: a thin core, on-demand guidance and code checks</li><li>The visual/UI evaluator</li></ul></div>
+      <div><h4>With partners</h4><ul><li><b>Platform engineers</b> wired the skills into live agent systems</li><li><b>The information development team</b> wrote component guidance in parallel</li></ul></div>
+    </div>
     <figure class="cs-hero"><img src="./assets/agent-studio-hero.webp?v=2" alt="Oracle AI Agent Studio template gallery, showing agent and team templates such as Procurement Policy Advisor and Sales Quote Generation" /></figure>
   </section>
 
@@ -232,8 +236,16 @@
         <div class="dp-table-wrap" role="region" aria-label="Sample plan comparison" tabindex="0"><table class="dp-table"><thead><tr><th scope="col">Plan</th><th scope="col">Seats</th><th scope="col">Storage</th><th scope="col">Support</th></tr></thead><tbody><tr><td>Plan A</td><td>5</td><td>50 GB</td><td>Email</td></tr><tr><td>Plan B</td><td>25</td><td>500 GB</td><td>Chat</td></tr><tr><td>Plan C</td><td>100</td><td>2 TB</td><td>Phone</td></tr></tbody></table></div>
       </section>
       </div>
-      <p class="dp-role"><b>My role.</b> I wrote the skills and designed how they layer. Platform engineers wired them into live agent systems, and the information development team wrote component guidance in parallel.</p>
     </div>
+    <div class="cs-section">
+      <h2>What I chose not to do</h2>
+      <ul class="nots">
+        <li><b>Not everything always on.</b>Every line in an always-on skill costs tokens on every request, so only a thin core stays resident.</li>
+        <li><b>Not guidance left in documents.</b>Documents do not run inside an agent. The rules became skills that do.</li>
+        <li><b>Not trusting the model to check itself.</b>Rules a machine can verify, like a table having a header row, moved into code.</li>
+      </ul>
+    </div>
+
     <div class="cs-section">
       <h2 data-toc="Evidence of impact">Evidence of impact</h2>
       <ul class="dp-ev">

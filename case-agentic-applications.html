@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="./site.css?v=47" />
+<link rel="stylesheet" href="./site.css?v=48" />
 </head>
 <body>
 
@@ -38,6 +38,10 @@
       <div><dt>Product</dt><dd>Fusion Agentic Applications and Fusion Claw</dd></div>
       <div><dt>Scope</dt><dd>Four product lines: HCM, ERP, CX, and SCM</dd></div>
     </dl>
+    <div class="own">
+      <div><h4>I owned</h4><ul><li>The intent taxonomy and component-selection rules, written as prompt skills</li><li>The visual style guide and short best practices</li><li>The mapping from the design system to what the app renders</li></ul></div>
+      <div><h4>With partners</h4><ul><li><b>Engineering</b> built the render pipeline and checks</li><li><b>The design system team</b> owns Redwood itself</li></ul></div>
+    </div>
     <figure class="cs-hero"><img src="./assets/fusion-claw-hero-1200.webp" srcset="./assets/fusion-claw-hero-1200.webp 1200w, ./assets/fusion-claw-hero-1672.webp 1672w" sizes="(max-width:1080px) 100vw, 1000px" alt="Fusion Claw, the Oracle Fusion agentic mascot in a safety vest" /></figure>
   </section>
 
@@ -88,6 +92,22 @@
     </div>
 
     <div class="cs-section">
+      <h2>How the agent decides</h2>
+      <p>The behavior layer in plain terms: for each situation, what the agent does, and what makes sure it does.</p>
+      <table class="dec">
+        <thead><tr><th scope="col">When</th><th scope="col">The agent</th><th scope="col">Enforced by</th></tr></thead>
+        <tbody>
+          <tr><td>A question with a headline figure, like overdue invoices</td><td data-l="The agent">Leads with the number</td><td data-l="Enforced by">Prompt skill</td></tr>
+          <tr><td>A list of three or more comparable items</td><td data-l="The agent">Shows a table</td><td data-l="Enforced by">Component-selection rule</td></tr>
+          <tr><td>Any answer</td><td data-l="The agent">Attaches source, calculation and assumption</td><td data-l="Enforced by">The Outcome contract</td></tr>
+          <tr><td>A next step exists</td><td data-l="The agent">Proposes actions, like remind or escalate, instead of leaving it to the reader</td><td data-l="Enforced by">Prompt skill</td></tr>
+          <tr><td>A known component is needed</td><td data-l="The agent">Emits widget JSON, not free-form markup</td><td data-l="Enforced by">Schema and lint gates</td></tr>
+        </tbody>
+      </table>
+      <p class="dec-note">Simplified, as in the example below. It is not the production schema.</p>
+    </div>
+
+    <div class="cs-section">
       <h2>In the product</h2>
       <p>Fusion Claw was announced on Sep 29, 2026. Its screens stay blurred here until the public release.</p>
       <div class="pics two">
@@ -128,8 +148,16 @@ evidence: [source, calculation, assumption]</code></pre>
         </div>
       </section>
       </div>
-      <p class="dp-role"><b>My role.</b> I wrote the intent taxonomy and the component-selection rules as prompt skills, and mapped the design system to what the app renders. Engineering built the render pipeline and checks, and the design system team owns Redwood.</p>
     </div>
+    <div class="cs-section">
+      <h2>What I chose not to do</h2>
+      <ul class="nots">
+        <li><b>Not a longer spec.</b>Teams do not want to read a whole spec, so I wrote a style guide a model can follow and short best practices people will use.</li>
+        <li><b>Not free-form model output.</b>When the model decides both what to say and how it looks, layouts drift. The model declares intent, and the product owns rendering.</li>
+        <li><b>Not every rule in the prompt.</b>Rules that need no model sit in schema and code. Consistency does not depend on the model behaving, and fewer tokens ride along in every request.</li>
+      </ul>
+    </div>
+
     <div class="cs-section">
       <h2 data-toc="Evidence of impact">Evidence of impact</h2>
       <ul class="dp-ev">
