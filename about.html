@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="./site.css?v=46" />
+<link rel="stylesheet" href="./site.css?v=47" />
 <style>
 /* About is the off-duty page: a serif voice, and the orange secondary color in motion */
 :root{--tape:rgba(240,138,60,.38);--serif:'Fraunces',Georgia,'Times New Roman',serif;--orange-ink:#C4571A}
@@ -71,7 +71,7 @@
 @media(prefers-reduced-motion:reduce){.interest .note{transition:none}}
 
 /* photo wall */
-.wall{columns:3;column-gap:var(--s6);padding-bottom:var(--s8)}
+.wall{columns:3;column-gap:var(--s6);padding:0 var(--s4) var(--s8);margin:0 calc(var(--s4) * -1);overflow-x:clip}
 .snap{break-inside:avoid;margin:0 0 var(--s7);display:block;position:relative;transform:rotate(var(--r,0deg));transition:transform var(--dur-2) var(--ease)}
 .snap:nth-child(3n+1){--r:-1.6deg}.snap:nth-child(3n+2){--r:1.2deg}.snap:nth-child(3n){--r:-.6deg}
 .snap.drop{opacity:0;transform:translateY(-56px) rotate(calc(var(--r,0deg) * 5))}
@@ -90,6 +90,29 @@
 .snap figcaption{font-family:var(--serif);font-style:italic;font-size:var(--fs-title);line-height:var(--lh-title);color:var(--body);padding:var(--s3) var(--s1) 0}
 .snap figcaption i{display:inline-block;font-family:var(--mono);font-style:normal;font-size:var(--fs-tag);letter-spacing:.08em;color:var(--orange-ink);background:rgba(240,138,60,.16);border-radius:var(--r-pill);padding:1px var(--s2);margin-right:var(--s2);vertical-align:2px}
 .snap::before{content:"";position:absolute;top:-10px;left:50%;width:84px;height:22px;transform:translateX(-50%) rotate(-2deg);background:var(--tape);z-index:1}
+
+
+/* lightbox */
+.snap{cursor:zoom-in}
+.lb{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;flex-direction:column;gap:var(--s4);padding:var(--s6) var(--s5);background:rgba(20,16,12,.86)}
+.lb.open{display:flex}
+.lb-media{max-width:min(80vw,1100px);max-height:78vh;display:flex}
+.lb-media img,.lb-media video{max-width:100%;max-height:78vh;border-radius:4px;box-shadow:0 20px 60px rgba(0,0,0,.5);background:#000}
+.lb-cap{font-family:var(--serif);font-style:italic;font-size:var(--fs-title);line-height:var(--lh-title);color:#F4F2EE;text-align:center;max-width:60ch}
+.lb-stage{display:flex;align-items:center;justify-content:center;gap:var(--s4);max-width:100%}
+.lb-media{min-width:0}
+.lb button{flex:none;display:flex;align-items:center;justify-content:center;padding:0;border:0;background:rgba(255,255,255,.14);color:#fff;width:44px;height:44px;border-radius:50%;cursor:pointer}
+.lb button svg{width:20px;height:20px;display:block}
+.lb button:hover{background:rgba(255,255,255,.26)}
+.lb button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.lb-x{position:absolute;top:var(--s4);right:var(--s4)}
+.lb-nav-m{display:none}
+@media(max-width:700px){
+  .lb{padding:var(--s7) var(--s3) var(--s5)}
+  .lb-stage .lb-p,.lb-stage .lb-n{display:none}
+  .lb-nav-m{display:flex;gap:var(--s4)}
+  .lb-media,.lb-media img,.lb-media video{max-height:64vh}
+}
 
 @media(max-width:900px){.wall{columns:2;column-gap:var(--s5)}.ab-hero{padding-top:var(--s7)}}
 @media(max-width:560px){.wall{columns:1}.snap{--r:0deg!important;max-width:420px;margin-left:auto;margin-right:auto}}
@@ -180,6 +203,18 @@
   </div>
 </footer>
 
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo preview" hidden>
+  <button class="lb-x" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <div class="lb-stage">
+    <button class="lb-p" aria-label="Previous photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <div class="lb-media" id="lbm"></div>
+    <button class="lb-n" aria-label="Next photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+  <div class="lb-cap" id="lbc"></div>
+  <div class="lb-nav-m"><button class="lb-p" aria-label="Previous photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><button class="lb-n" aria-label="Next photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></div>
+</div>
+
+
 <script>
 /* photos drop in as they scroll into view */
 const snaps = document.querySelectorAll('.snap');
@@ -204,6 +239,26 @@ document.querySelectorAll('.snap video').forEach(v => {
     if (e.isIntersecting) v.play().catch(() => { v.controls = true; }); else v.pause();
   }), { threshold: .4 }).observe(v);
 });
+</script>
+<script>
+/* photo preview */
+(function(){
+  const lb=document.getElementById('lb'),m=document.getElementById('lbm'),c=document.getElementById('lbc');
+  const items=[...document.querySelectorAll('.snap')];let i=0,last=null;
+  function show(n){
+    i=(n+items.length)%items.length;const f=items[i];m.innerHTML='';
+    const v=f.querySelector('video'),im=f.querySelector('img');
+    if(v){const e=document.createElement('video');e.src=v.currentSrc||v.src;e.poster=v.poster;e.controls=true;e.autoplay=true;e.loop=true;e.muted=true;e.playsInline=true;m.appendChild(e)}
+    else{const e=document.createElement('img');e.src=im.currentSrc||im.src;e.alt=im.alt;m.appendChild(e)}
+    c.textContent=f.querySelector('figcaption').textContent.replace(/^\d+/,'');
+  }
+  function open(n){last=document.activeElement;lb.hidden=false;lb.classList.add('open');document.body.style.overflow='hidden';show(n);lb.querySelector('.lb-x').focus()}
+  function close(){lb.classList.remove('open');lb.hidden=true;m.innerHTML='';document.body.style.overflow='';if(last)last.focus()}
+  items.forEach((f,n)=>{f.tabIndex=0;f.setAttribute('role','button');f.addEventListener('click',()=>open(n));f.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(n)}})});
+  lb.querySelector('.lb-x').onclick=close;lb.querySelectorAll('.lb-p').forEach(b=>b.onclick=()=>show(i-1));lb.querySelectorAll('.lb-n').forEach(b=>b.onclick=()=>show(i+1));
+  lb.addEventListener('click',e=>{if(e.target===lb)close()});
+  document.addEventListener('keydown',e=>{if(lb.hidden)return;if(e.key==='Escape')close();else if(e.key==='ArrowLeft')show(i-1);else if(e.key==='ArrowRight')show(i+1)});
+})();
 </script>
 </body>
 </html>
