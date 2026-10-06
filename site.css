@@ -543,6 +543,23 @@ a.pcard:hover .status i{transform:scale(1.5)}
   .dec td:not(:first-child)::before{content:attr(data-l);display:block;font-size:var(--fs-label);letter-spacing:.08em;text-transform:uppercase;color:var(--soft);font-weight:600}
 }
 
+/* decision-first lead and the through-line */
+.lead{margin-top:var(--s5);padding:var(--s5);border:1px solid var(--card-line);border-radius:var(--r-lg);background:var(--grain),var(--card);max-width:760px}
+.lead-k{font-size:var(--fs-label);line-height:var(--lh-label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--s2)}
+.lead-d{font-size:var(--fs-title);line-height:var(--lh-title);font-weight:600;letter-spacing:-.015em;color:var(--ink);text-wrap:balance}
+.lead-w{font-size:var(--fs-ui);line-height:var(--lh-ui);color:var(--body);margin-top:var(--s3)}
+.lead-w b{color:var(--ink);font-weight:600}
+.arc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s3);margin-top:var(--s4)}
+.arc a{display:flex;flex-direction:column;gap:var(--s1);padding:var(--s4);border:1px solid var(--card-line);border-radius:var(--r-lg);background:var(--grain),var(--card);transition:border-color var(--dur-1),transform var(--dur-1)}
+.arc a:hover{border-color:var(--ink);transform:translateY(-2px)}
+.arc .v{font-size:var(--fs-label);line-height:var(--lh-label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.arc b{font-size:var(--fs-ui);line-height:var(--lh-ui);font-weight:600;color:var(--ink)}
+.arc span.d{font-size:var(--fs-small);line-height:var(--lh-small);color:var(--soft)}
+.arc-intro{font-size:var(--fs-body);line-height:var(--lh-body);color:var(--body);max-width:64ch;margin-top:var(--s3)}
+@media(max-width:900px){.arc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.arc{grid-template-columns:minmax(0,1fr)}.lead{padding:var(--s4)}}
+@media(prefers-reduced-motion:reduce){.arc a{transition:none}.arc a:hover{transform:none}}
+
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .rv{opacity:1;transform:none;transition:none}
