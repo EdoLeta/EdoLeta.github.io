@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="./site.css?v=50" />
+<link rel="stylesheet" href="./site.css?v=51" />
 </head>
 <body>
 
@@ -122,32 +122,25 @@
     </figure>
     <div class="cs-section">
       <h2>Example</h2>
-      <h3 class="dp-title">A follow-up that changes the time period</h3>
-      <p>A fictional two-turn conversation, and how one reply is scored. The card below is illustrative.</p>
-      <div class="dp-steps">
-      <section class="dp-panel before">
-        <h4>The conversation</h4>
-        <div class="dp-turns">
-          <div class="dp-turn u"><small>Turn 1, user</small>Show me headcount by department for last quarter.</div>
-          <div class="dp-turn a"><small>Assistant</small>Last quarter: Sales 40, Support 25, Product 15.</div>
-          <div class="dp-turn u"><small>Turn 2, user</small>Actually, make that the last six months.</div>
-          <div class="dp-turn a"><small>Assistant (reply being scored)</small>Headcount over the last six months averaged 82.</div>
-        </div>
-      </section>
-      <section class="dp-panel decision">
-        <h4>My decision: score against the whole conversation</h4>
-        <p>A reply is judged against everything the user has asked so far, not only the latest message. This reply is readable on its own, but it quietly drops the department breakdown that turn one established. Scoring each turn alone would miss that.</p>
-      </section>
-      <section class="dp-panel after">
-        <h4>After: a sample scoring card</h4>
-        <div class="dp-score" role="table" aria-label="Illustrative scoring card">
-          <div class="row head" role="row"><span role="columnheader">Criterion</span><span role="columnheader">Score</span><span role="columnheader">Rationale</span></div>
-          <div class="row" role="row"><b role="cell">Readability</b><span class="n" role="cell">4 / 5</span><span role="cell">One short, plain sentence that is easy to scan.</span></div>
-          <div class="row" role="row"><b role="cell">Completeness</b><span class="n" role="cell">2 / 5</span><span role="cell">Gives a total for the new period but loses the department breakdown.</span></div>
-          <div class="row" role="row"><b role="cell">Word count</b><span class="n" role="cell">4 / 5</span><span role="cell">Length fits the question.</span></div>
-        </div>
-        <p class="dp-note" style="margin-top:12px"><b>What a 5 on completeness looks like:</b> it restates the new period, keeps the department breakdown, and says the period changed.</p>
-      </section>
+      <p>A fictional two-turn conversation, and how the last reply is scored. The scores are illustrative.</p>
+      <div class="cx">
+        <div class="cx-me">Show me headcount by department for last quarter.</div>
+        <div class="cx-turn"><div class="cx-av dim" aria-hidden="true">AI</div><div><div class="cx-bub plain">Last quarter: Sales 40, Support 25, Product 15.</div></div></div>
+        <div class="cx-me">Actually, make that the last six months.</div>
+        <div class="cx-turn"><div class="cx-av" aria-hidden="true">AI</div><div>
+          <div class="cx-who a">Reply being scored</div>
+          <div class="cx-bub plain">Headcount over the last six months averaged 82.</div>
+          <div class="cx-score" role="table" aria-label="Illustrative scores">
+            <div role="row"><b role="cell">Readability</b><span class="cx-dots" role="cell" aria-label="4 out of 5">●●●●<i>●</i></span><span role="cell">One short, plain sentence.</span></div>
+            <div role="row" class="low"><b role="cell">Completeness</b><span class="cx-dots" role="cell" aria-label="2 out of 5">●●<i>●●●</i></span><span role="cell">Drops the department breakdown from turn one.</span></div>
+            <div role="row"><b role="cell">Word count</b><span class="cx-dots" role="cell" aria-label="4 out of 5">●●●●<i>●</i></span><span role="cell">Length fits the question.</span></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="cx-rule">
+        <div class="cx-k">The rule I set</div>
+        <p class="cx-lead"><b>Score a reply against the whole conversation,</b> not only the latest message. This reply reads fine on its own, so scoring each turn alone would miss what it lost.</p>
+        <p class="cx-cap">A 5 on completeness restates the new period, keeps the department breakdown, and says the period changed.</p>
       </div>
     </div>
     <div class="cs-section">

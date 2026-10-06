@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="./site.css?v=50" />
+<link rel="stylesheet" href="./site.css?v=51" />
 </head>
 <body>
 
@@ -119,35 +119,37 @@
 
     <div class="cs-section">
       <h2>Example</h2>
-      <h3 class="dp-title">Which invoices are overdue?</h3>
-      <p>A finance user asks a fictional question about sample invoices. The same question can come back in very different shapes.</p>
-      <div class="dp-steps">
-      <section class="dp-panel before">
-        <h4>Before: an unstructured answer</h4>
-        <p class="dp-quote">&ldquo;Looks like a few invoices are past due. Sample Co A seems to owe quite a bit, and there might be a couple of others, so you may want to follow up soon.&rdquo;</p>
-        <p class="dp-note">No headline number, no list, no sources, and the next step is left to the reader.</p>
-      </section>
-      <section class="dp-panel decision">
-        <h4>My decision: the rule I owned</h4>
-        <p>The model declares intent and the product owns rendering. For an overdue question the contract is fixed: the headline number first, a table for any list of three or more comparable items, and supporting evidence always attached.</p>
-        <pre tabindex="0" aria-label="Sample content contract, simplified"><code>intent: overdue_summary
+      <p>A fictional finance question about sample invoices, answered before and after the rule.</p>
+      <div class="cx">
+        <div class="cx-me">Which invoices are overdue?</div>
+        <div class="cx-turn"><div class="cx-av dim" aria-hidden="true">AI</div><div>
+          <div class="cx-who">Before</div>
+          <div class="cx-bub">Looks like <u>a few invoices</u> are past due. Sample Co A <u>seems to owe quite a bit</u>, and there <u>might be a couple</u> of others, so you <u>may want to follow up soon</u>.</div>
+          <div class="cx-miss"><span>No headline number</span><span>No list</span><span>No sources</span><span>Next step left to you</span></div>
+        </div></div>
+        <div class="cx-turn"><div class="cx-av" aria-hidden="true">AI</div><div>
+          <div class="cx-who a">After</div>
+          <div class="cx-rich">
+            <p class="cx-num">3 invoices overdue<span>$18,250 total</span></p>
+            <div class="cx-qa"><span class="p">Escalate INV-1042</span><span>Remind INV-1057</span><span>Remind INV-1063</span></div>
+            <div class="cx-tw" role="region" aria-label="Sample overdue invoices" tabindex="0"><table class="cx-tbl"><thead><tr><th scope="col">Invoice</th><th scope="col">Customer</th><th scope="col" class="r">Amount</th><th scope="col" class="r">Days overdue</th></tr></thead><tbody>
+              <tr><td>INV-1042</td><td>Sample Co A</td><td class="r">$6,200</td><td class="r">41</td></tr>
+              <tr><td>INV-1057</td><td>Sample Co B</td><td class="r">$8,950</td><td class="r">18</td></tr>
+              <tr><td>INV-1063</td><td>Sample Co C</td><td class="r">$3,100</td><td class="r">7</td></tr></tbody></table></div>
+            <p class="cx-src">Source: sample receivables ledger. Calculation: amount past due, summed. Assumption: net-30 terms.</p>
+          </div>
+          <div class="cx-ok"><span>Headline first</span><span>Actions, not advice</span><span>Table for 3+ items</span><span>Evidence attached</span></div>
+        </div></div>
+      </div>
+      <div class="cx-rule">
+        <div class="cx-k">The rule I owned</div>
+        <p class="cx-lead">The model declares intent. <b>The product owns rendering.</b> For an overdue question the contract is fixed, so every answer comes back in this shape.</p>
+        <pre class="cx-mono" tabindex="0" aria-label="Simplified contract">intent: overdue_summary
 answer.headline: "3 invoices overdue, $18,250"
 answer.actions: [remind, remind, escalate]
-artifact.component: table      # rule: 3+ comparable items
-artifact.columns: [invoice, customer, amount, days_overdue]
-evidence: [source, calculation, assumption]</code></pre>
-        <p class="dp-note">A simplified, illustrative contract. It is not the production schema.</p>
-      </section>
-      <section class="dp-panel after">
-        <h4>After: an Outcome</h4>
-        <div class="dp-mini">
-          <div><h5>Answer and actions</h5><p>3 invoices are overdue, $18,250 in total. Send reminders for the two newer ones and escalate the oldest.</p></div>
-          <div><h5>Artifact</h5>
-        <div class="dp-table-wrap" role="region" aria-label="Sample overdue invoices" tabindex="0"><table class="dp-table"><thead><tr><th scope="col">Invoice</th><th scope="col">Customer</th><th scope="col">Amount</th><th scope="col">Days overdue</th></tr></thead><tbody><tr><td>INV-1042</td><td>Sample Co A</td><td>$6,200</td><td>41</td></tr><tr><td>INV-1057</td><td>Sample Co B</td><td>$8,950</td><td>18</td></tr><tr><td>INV-1063</td><td>Sample Co C</td><td>$3,100</td><td>7</td></tr></tbody></table></div>
-          </div>
-          <div><h5>Supporting evidence</h5><p>Source: sample receivables ledger. Calculation: amount past due, summed. Assumption: net-30 payment terms.</p></div>
-        </div>
-      </section>
+artifact.component: table   # rule: 3+ comparable items
+evidence: [source, calculation, assumption]</pre>
+        <p class="cx-cap">A simplified, illustrative contract. It is not the production schema.</p>
       </div>
     </div>
     <div class="cs-section">

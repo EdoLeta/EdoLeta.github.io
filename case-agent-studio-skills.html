@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="./site.css?v=50" />
+<link rel="stylesheet" href="./site.css?v=51" />
 </head>
 <body>
 
@@ -210,32 +210,29 @@
     </figure>
     <div class="cs-section">
       <h2>Example</h2>
-      <h3 class="dp-title">One formatting rule, traced end to end</h3>
-      <p>The rule: use a table when comparing three or more items across the same attributes. With sample content, here is where it lives in each layer.</p>
-      <div class="dp-steps">
-      <section class="dp-panel before">
-        <h4>From guidance</h4>
-        <p>The internal formatting guideline says to use a table when comparing three or more items across the same attributes.</p>
-        <p class="dp-note">Written for people. A model only follows it if it is turned into an instruction or a check.</p>
-      </section>
-      <section class="dp-panel decision">
-        <h4>My decision: put each part in the right layer</h4>
-        <div class="dp-mini">
-          <div><h5>Always on (core)</h5><p>Compare 3 or more items across shared attributes in a table.</p></div>
-          <div><h5>On demand (loaded when a comparison is detected)</h5><p>Header row, one attribute per column, six columns at most, units in the header, no merged cells.</p></div>
-          <div><h5>Code check (no model)</h5>
-        <pre tabindex="0" aria-label="Sample code check"><code>check_table(output):
-  fail if there is no header row
-  fail if columns &gt; 6</code></pre>
+      <p>One formatting rule, traced from the guideline to a sample response with fictional plans.</p>
+      <div class="cx">
+        <div class="cx-me">Compare Plan A, B and C.</div>
+        <div class="cx-turn"><div class="cx-av" aria-hidden="true">AI</div><div>
+          <div class="cx-rich">
+            <div class="cx-tw" role="region" aria-label="Sample plan comparison" tabindex="0"><table class="cx-tbl"><thead><tr><th scope="col">Plan</th><th scope="col">Seats</th><th scope="col">Storage</th><th scope="col">Support</th></tr></thead><tbody>
+              <tr><td>Plan A</td><td>5</td><td>50 GB</td><td>Email</td></tr>
+              <tr><td>Plan B</td><td>25</td><td>500 GB</td><td>Chat</td></tr>
+              <tr><td>Plan C</td><td>100</td><td>2 TB</td><td>Phone</td></tr></tbody></table></div>
           </div>
-        </div>
-        <p class="dp-note" style="margin-top:12px">One line stays resident, detail loads only when needed, and the checkable part moves into code to save tokens.</p>
-      </section>
-      <section class="dp-panel after">
-        <h4>To a sample response</h4>
-        <p>A user asks to compare three fictional plans. The output follows the rule:</p>
-        <div class="dp-table-wrap" role="region" aria-label="Sample plan comparison" tabindex="0"><table class="dp-table"><thead><tr><th scope="col">Plan</th><th scope="col">Seats</th><th scope="col">Storage</th><th scope="col">Support</th></tr></thead><tbody><tr><td>Plan A</td><td>5</td><td>50 GB</td><td>Email</td></tr><tr><td>Plan B</td><td>25</td><td>500 GB</td><td>Chat</td></tr><tr><td>Plan C</td><td>100</td><td>2 TB</td><td>Phone</td></tr></tbody></table></div>
-      </section>
+          <div class="cx-ok"><span>Table for 3+ items</span><span>Header row</span><span>Six columns at most</span></div>
+        </div></div>
+      </div>
+      <div class="cx-rule">
+        <div class="cx-k">Where the rule lives</div>
+        <p class="cx-lead">The guideline says to use a table when comparing three or more items. <b>I split it across three layers</b> so only one line rides along on every request.</p>
+        <dl class="cx-layers">
+          <div><dt>Always on</dt><dd>Compare 3 or more items across shared attributes in a table.</dd></div>
+          <div><dt>On demand</dt><dd>Header row, one attribute per column, six columns at most, units in the header, no merged cells.</dd></div>
+          <div><dt>Code check</dt><dd><code>check_table(output):
+  fail if there is no header row
+  fail if columns &gt; 6</code></dd></div>
+        </dl>
       </div>
     </div>
     <div class="cs-section">

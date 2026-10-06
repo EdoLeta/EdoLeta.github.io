@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="./site.css?v=50" />
+<link rel="stylesheet" href="./site.css?v=51" />
 </head>
 <body>
 
@@ -71,28 +71,28 @@
 
     <div class="cs-section">
       <h2>Example</h2>
-      <h3 class="dp-title">A password reset question</h3>
-      <p>One fictional user request, an original response, the rule I wrote, and the improved response with the changes marked.</p>
-      <div class="dp-steps">
-      <section class="dp-panel before">
-        <h4>Before: the original response</h4>
-        <p class="dp-quote">&ldquo;Great question! Password resets can sometimes be tricky, and it really depends on a few things. In general you may be able to reset it, though this might vary depending on your setup. You could try looking for a link on the sign-in page that might say something like Forgot password, and if that does not work it is possible you will need to contact support.&rdquo;</p>
-        <p class="dp-note">Hedges on facts it was given, buries the action, and opens with filler.</p>
-      </section>
-      <section class="dp-panel decision">
-        <h4>My decision: the guideline rule</h4>
-        <p>Lead with the answer, and do not hedge on facts the assistant was given. In the prompt-instruction block it reads:</p>
-        <pre tabindex="0" aria-label="Sample prompt block, paraphrased"><code>Lead with the direct answer in the first sentence.
+      <p>A fictional password reset question, answered before and after the guideline.</p>
+      <div class="cx">
+        <div class="cx-me">How do I reset my password?</div>
+        <div class="cx-turn"><div class="cx-av dim" aria-hidden="true">AI</div><div>
+          <div class="cx-who">Before</div>
+          <div class="cx-bub"><u>Great question!</u> Password resets can sometimes be tricky, and <u>it really depends on a few things</u>. In general you <u>may be able to</u> reset it, though this <u>might vary</u> depending on your setup. You could try looking for a link on the sign-in page that <u>might say something like</u> Forgot password, and if that does not work <u>it is possible</u> you will need to contact support.</div>
+          <div class="cx-miss"><span>Opens with filler</span><span>Hedges on facts it was given</span><span>Buries the action</span></div>
+        </div></div>
+        <div class="cx-turn"><div class="cx-av" aria-hidden="true">AI</div><div>
+          <div class="cx-who a">After</div>
+          <div class="cx-rich">Select <b>Forgot password</b> on the sign-in page and follow the link we email you. If it has not arrived in a few minutes, check your spam folder, then contact your administrator.</div>
+          <div class="cx-ok"><span>Answer first</span><span>No hedging</span><span>One short fallback step</span></div>
+        </div></div>
+      </div>
+      <div class="cx-rule">
+        <div class="cx-k">The rule I wrote</div>
+        <p class="cx-lead">Lead with the answer, and <b>do not hedge on facts the assistant was given.</b> In the prompt-instruction block it reads:</p>
+        <pre class="cx-mono" tabindex="0" aria-label="Sample prompt block, paraphrased">Lead with the direct answer in the first sentence.
 State what the user can do before explaining why.
 Do not hedge on facts you were given.
-Add steps only when the user needs them.</code></pre>
-        <p class="dp-note">Paraphrased for this example.</p>
-      </section>
-      <section class="dp-panel after">
-        <h4>After: the improved response</h4>
-        <p class="dp-quote">&ldquo;Select <b>Forgot password</b> on the sign-in page and follow the link we email you.<sup> 1</sup> If it has not arrived in a few minutes, check your spam folder, then contact your administrator.<sup> 2</sup>&rdquo;</p>
-        <p class="dp-note"><b>1</b> The action comes first, with no filler or hedging. <b>2</b> The fallback is a short, ordered step instead of a list of maybes.</p>
-      </section>
+Add steps only when the user needs them.</pre>
+        <p class="cx-cap">Paraphrased for this example.</p>
       </div>
     </div>
     <div class="cs-section">
