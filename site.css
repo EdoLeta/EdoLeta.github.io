@@ -207,6 +207,8 @@ a.pcard:hover .ext svg{transform:translate(2px,-2px)}
 .pcard .ph{display:block;transition:transform var(--dur-2) var(--ease)}
 a.pcard:hover .ph{transform:scale(1.06)}
 .pcard-text{min-width:0;line-height:var(--lh-small)}
+.kmeta{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s1) var(--s3)}
+.kind{font-family:var(--mono);font-size:var(--fs-tag);line-height:var(--lh-tag);letter-spacing:.04em;text-transform:uppercase;color:var(--accent);font-weight:600}
 .pcard h3{font-size:var(--fs-title);line-height:var(--lh-title);font-weight:600;letter-spacing:-.02em;margin-top:var(--s2);transition:color var(--dur-1),transform var(--dur-2) var(--ease)}
 a.pcard:hover h3{color:var(--accent);transform:translateX(3px)}
 a.pcard .status i{transition:transform var(--dur-2) var(--ease)}

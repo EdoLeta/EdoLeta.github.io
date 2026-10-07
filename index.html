@@ -45,7 +45,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="./site.css?v=53" />
+<link rel="stylesheet" href="./site.css?v=54" />
 <style>
 :root{--nav-h:57px}
 
@@ -139,16 +139,58 @@
   .think:hover,.think:hover .think-ill,.think:hover .status i{transform:none}
   .door:hover{transform:none}
 }
+
+/* ---- landing: name, line, portrait; the field of signals condenses into the principles ---- */
+#field{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;transition:opacity .4s}
+main,.foot{position:relative;z-index:1}
+.hero{min-height:calc(100svh - var(--nav-h));display:flex;align-items:center;padding-top:var(--s6);padding-bottom:var(--s8)}
+.hero-grid{width:100%}
+
+.stage{padding-top:var(--s7);scroll-margin-top:var(--nav-h)}
+.stage-k{font:500 11px/16px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--s3)}
+.stage h2.lbl{margin-bottom:var(--s2)}
+.stage .sec-sub{margin-bottom:var(--s5)}
+
+/* the jump */
+.go{display:inline-flex;align-items:center;gap:var(--s3);margin-top:var(--s6);padding:12px 20px 12px 14px;border-radius:var(--r-pill);background:var(--ink);color:#fff;font-size:var(--fs-ui);line-height:var(--lh-ui);font-weight:600;opacity:0;animation:rise .8s var(--ease) 1.25s forwards;transition:transform var(--dur-2) var(--ease)}
+.go:hover{transform:translateY(-2px)}
+.go .wave{display:inline-flex;align-items:center;gap:2px;height:16px}
+.go .wave i{width:3px;border-radius:2px;background:#F08A3C;animation:wv 1.1s ease-in-out infinite}
+.go .wave i:nth-child(1){height:6px;animation-delay:-.4s}.go .wave i:nth-child(2){height:14px;animation-delay:-.2s}.go .wave i:nth-child(3){height:9px;animation-delay:-.6s}.go .wave i:nth-child(4){height:12px}
+@keyframes wv{50%{transform:scaleY(.4)}}
+
+/* compact principle cards */
+.tg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s3)}
+.tc{display:grid;grid-template-columns:44px minmax(0,1fr);gap:var(--s1) var(--s4);align-items:start;padding:var(--s4) var(--s5);border-radius:var(--r-lg);background:var(--grain),var(--card);border:1px solid var(--card-line);box-shadow:0 1px 2px rgba(60,40,25,.04);transition:border-color var(--dur-1),transform var(--dur-2) var(--ease),opacity .5s var(--ease)}
+.tc:hover{border-color:var(--ink);transform:translateY(-2px)}
+.tc-ill{grid-row:1/3;height:30px;color:var(--line-2);margin-top:2px}
+.tc-ill svg{height:100%;width:auto}
+.tc-ill .ink{color:var(--accent)}
+.tc h3{font-size:var(--fs-ui);line-height:var(--lh-ui);font-weight:600;letter-spacing:-.01em}
+.tc p{font-size:var(--fs-small);line-height:var(--lh-small);color:var(--soft)}
+.tc-ship{grid-column:2;margin-top:var(--s2);display:flex;align-items:center;gap:var(--s2);font-size:var(--fs-label);line-height:var(--lh-label);color:var(--faint)}
+.tc-ship b{font-weight:600;color:var(--ink)}
+.tc-ship .status{margin-left:auto}
+@media(max-width:700px){
+  .tg{grid-template-columns:minmax(0,1fr);gap:var(--s2)}
+  .tc{padding:var(--s3) var(--s4);grid-template-columns:32px minmax(0,1fr)}
+  .tc-ill{height:22px}
+  .tc p{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  #field{display:none}.go,.go .wave i{animation:none;opacity:1}
+}
 </style>
 </head>
 <body>
 
+<canvas id="field" aria-hidden="true"></canvas>
 <header class="nav">
   <div class="nav-in">
     <a class="nav-name" href="./">Edosa Leta<span class="nav-dot"></span></a>
     <nav class="nav-links">
       <a href="./work">Work</a>
-      <a href="./projects">Projects</a>
+      <a href="./play">Play</a>
       <a href="./about">About</a>
       <a href="./resume">Resume</a>
     </nav>
@@ -161,7 +203,7 @@
       <div>
         <h1 class="hello" aria-label="Hello, I'm Edosa Leta."><span class="tk" style="--i:0" aria-hidden="true">Hello,</span> <span class="tk" style="--i:1" aria-hidden="true">I’m</span> <span class="tk" style="--i:2" aria-hidden="true">Edosa</span> <span class="tk" style="--i:3" aria-hidden="true">Leta.</span><i class="caret" aria-hidden="true"></i></h1>
         <p class="hero-p">Senior product designer on Oracle’s Redwood Design System, leading conversation design for enterprise AI. I shape the behavior, guardrails, and evaluation of the assistants used across Oracle Fusion Applications.</p>
-        <p class="hero-meta"><span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0114 0C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Bay Area</span></p>
+        <a class="go" href="#think" id="ask"><span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span>See how I think</a>
       </div>
 
       <figure class="portrait" id="portrait">
@@ -170,30 +212,19 @@
     </div>
   </section>
 
-  <section class="sec shell rv">
-    <h2 class="lbl">How I think about the work</h2>
-    <p class="sec-sub">Four principles I design by, each one shipped in a case study.</p>
-    <div class="think-grid">
-      <a class="think" href="./case-agentic-applications">
-        <div class="think-ill"><svg viewBox="0 0 120 64" fill="none" xmlns="http://www.w3.org/2000/svg"> <rect x="2" y="16" width="38" height="32" rx="5" stroke="currentColor" stroke-width="1.5"/> <circle cx="21" cy="32" r="6" stroke="currentColor" stroke-width="1.5"/> <path d="M46 32h26" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/> <path d="M66 27l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> <rect x="78" y="16" width="40" height="32" rx="5" stroke="currentColor" stroke-width="1.5" class="ink"/> <path d="M85 25h26M85 32h18M85 39h22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="ink"/> </svg></div>
-        <div class="think-body"><span class="think-num">01</span><h3>The model declares intent. The product owns rendering.</h3><p>The agent decides what kind of answer this is. A governed layer decides what it looks like.</p></div>
-        <div class="think-ship"><span class="ship-l">Shipped in</span><b>Fusion Claw</b><span class="status"><i class="live"></i>Live</span></div>
-      </a>
-      <a class="think" href="./case-agent-studio-skills">
-        <div class="think-ill"><svg viewBox="0 0 120 64" fill="none" xmlns="http://www.w3.org/2000/svg"> <rect x="8" y="10" width="34" height="44" rx="4" stroke="currentColor" stroke-width="1.5"/> <path d="M15 22h20M15 30h20M15 38h13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/> <path d="M50 32h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3 4"/> <rect x="78" y="10" width="34" height="44" rx="4" stroke="currentColor" stroke-width="1.5" class="ink"/> <path d="M86 30l6 6 12-13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ink"/> </svg></div>
-        <div class="think-body"><span class="think-num">02</span><h3>Documentation is not enforcement.</h3><p>A guideline changes behavior once it is a prompt, a schema, a lint gate, or an eval.</p></div>
-        <div class="think-ship"><span class="ship-l">Shipped in</span><b>AI Agent Studio skills</b><span class="status"><i class="internal"></i>Internal</span></div>
-      </a>
-      <a class="think" href="./case-response-quality">
-        <div class="think-ill"><svg viewBox="0 0 120 64" fill="none" xmlns="http://www.w3.org/2000/svg"> <circle cx="16" cy="32" r="6" stroke="currentColor" stroke-width="1.5"/> <path d="M24 32h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/> <path d="M40 32c8 0 8-18 16-18M40 32c8 0 8 18 16 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/> <circle cx="62" cy="14" r="5" stroke="currentColor" stroke-width="1.5" class="ink"/> <circle cx="62" cy="50" r="5" stroke="currentColor" stroke-width="1.5"/> <path d="M70 14h14M70 50h22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/> <circle cx="98" cy="14" r="5" stroke="currentColor" stroke-width="1.5" class="ink"/> </svg></div>
-        <div class="think-body"><span class="think-num">03</span><h3>Conversation design is product design.</h3><p>Disambiguation, refusal, and tone are the flows of an AI product, with states and edge cases.</p></div>
-        <div class="think-ship"><span class="ship-l">Shipped in</span><b>High-quality AI responses</b><span class="status"><i class="public"></i>Public</span></div>
-      </a>
-      <a class="think" href="./case-metrics-evals">
-        <div class="think-ill"><svg viewBox="0 0 120 64" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M10 52h100" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/> <rect x="18" y="34" width="14" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/> <rect x="40" y="24" width="14" height="28" rx="2" stroke="currentColor" stroke-width="1.5"/> <rect x="62" y="30" width="14" height="22" rx="2" stroke="currentColor" stroke-width="1.5"/> <rect x="84" y="12" width="14" height="40" rx="2" stroke="currentColor" stroke-width="1.5" class="ink"/> <path d="M18 20l22-8 22 6 22-12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="ink" stroke-dasharray="3 4"/> </svg></div>
-        <div class="think-body"><span class="think-num">04</span><h3>If you can’t measure it, you haven’t shipped it.</h3><p>Every behavior I define comes with a way to test it.</p></div>
-        <div class="think-ship"><span class="ship-l">Shipped in</span><b>Metrics and evaluations</b><span class="status"><i class="internal"></i>Internal</span></div>
-      </a>
+  <section class="stage shell" id="think">
+    <div>
+      <div>
+        <div class="stage-k">From noise to structure</div>
+        <h2 class="lbl">How I think about the work</h2>
+        <p class="sec-sub">Four principles I design by, each one shipped.</p>
+      </div>
+      <div class="tg" id="tg">
+        <a class="tc" href="./case-agentic-applications"><div class="tc-ill"><svg viewBox="0 0 120 64" fill="none" xmlns="http://www.w3.org/2000/svg"> <rect x="2" y="16" width="38" height="32" rx="5" stroke="currentColor" stroke-width="1.5"/> <circle cx="21" cy="32" r="6" stroke="currentColor" stroke-width="1.5"/> <path d="M46 32h26" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/> <path d="M66 27l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> <rect x="78" y="16" width="40" height="32" rx="5" stroke="currentColor" stroke-width="1.5" class="ink"/> <path d="M85 25h26M85 32h18M85 39h22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="ink"/> </svg></div><h3>The model declares intent. The product owns rendering.</h3><p>The agent decides what kind of answer this is. A governed layer decides what it looks like.</p><div class="tc-ship">In <b>Fusion Claw</b><span class="status"><i class="live"></i>Shipped</span></div></a>
+        <a class="tc" href="./case-agent-studio-skills"><div class="tc-ill"><svg viewBox="0 0 120 64" fill="none" xmlns="http://www.w3.org/2000/svg"> <rect x="8" y="10" width="34" height="44" rx="4" stroke="currentColor" stroke-width="1.5"/> <path d="M15 22h20M15 30h20M15 38h13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/> <path d="M50 32h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3 4"/> <rect x="78" y="10" width="34" height="44" rx="4" stroke="currentColor" stroke-width="1.5" class="ink"/> <path d="M86 30l6 6 12-13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ink"/> </svg></div><h3>Documentation is not enforcement.</h3><p>A guideline changes behavior once it is a prompt, a schema, a lint gate, or an eval.</p><div class="tc-ship">In <b>AI Agent Studio skills</b><span class="status"><i class="internal"></i>Internal</span></div></a>
+        <a class="tc" href="./case-response-quality"><div class="tc-ill"><svg viewBox="0 0 120 64" fill="none" xmlns="http://www.w3.org/2000/svg"> <circle cx="16" cy="32" r="6" stroke="currentColor" stroke-width="1.5"/> <path d="M24 32h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/> <path d="M40 32c8 0 8-18 16-18M40 32c8 0 8 18 16 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/> <circle cx="62" cy="14" r="5" stroke="currentColor" stroke-width="1.5" class="ink"/> <circle cx="62" cy="50" r="5" stroke="currentColor" stroke-width="1.5"/> <path d="M70 14h14M70 50h22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/> <circle cx="98" cy="14" r="5" stroke="currentColor" stroke-width="1.5" class="ink"/> </svg></div><h3>Conversation design is product design.</h3><p>Disambiguation, refusal, and tone are the flows of an AI product, with states and edge cases.</p><div class="tc-ship">In <b>High-quality AI responses</b><span class="status"><i class="public"></i>Public</span></div></a>
+        <a class="tc" href="./case-metrics-evals"><div class="tc-ill"><svg viewBox="0 0 120 64" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M10 52h100" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/> <rect x="18" y="34" width="14" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/> <rect x="40" y="24" width="14" height="28" rx="2" stroke="currentColor" stroke-width="1.5"/> <rect x="62" y="30" width="14" height="22" rx="2" stroke="currentColor" stroke-width="1.5"/> <rect x="84" y="12" width="14" height="40" rx="2" stroke="currentColor" stroke-width="1.5" class="ink"/> <path d="M18 20l22-8 22 6 22-12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="ink" stroke-dasharray="3 4"/> </svg></div><h3>If you can’t measure it, you haven’t shipped it.</h3><p>Every behavior I define comes with a way to test it.</p><div class="tc-ship">In <b>Metrics and evaluations</b><span class="status"><i class="internal"></i>Internal</span></div></a>
+      </div>
     </div>
   </section>
   <section class="door-sec shell">
@@ -222,7 +253,7 @@
         <a class="pcard" href="./case-agentic-applications">
           <div class="thumb"><span class="ph"><img src="./assets/fusion-claw-thumb-336.webp" srcset="./assets/fusion-claw-thumb-336.webp 336w, ./assets/fusion-claw-thumb-672.webp 672w" sizes="(max-width:420px) 100vw, 168px" width="168" height="105" alt="" /></span></div>
           <div class="pcard-text">
-            <span class="status"><i class="live"></i>Live</span>
+            <span class="status"><i class="live"></i>Shipped</span>
             <h3>Fusion Claw: Outcome Framework</h3>
             <p>Structurally consistent agent outcomes, in Redwood, across four product lines.</p>
           </div>
@@ -279,6 +310,71 @@ if (portrait && !reduce) {
     });
   }, { passive:true });
 }
+
+
+/* the field: signals drift behind the intro. Asking (or reaching the principles) condenses them into the cards, then the canvas stops */
+(() => {
+  const cv = document.getElementById('field');
+  if (!cv || reduce) return;
+  const hero = document.querySelector('.hero'), think = document.getElementById('think');
+  const cards = [...document.querySelectorAll('.tc')], ctx = cv.getContext('2d');
+  let W, H, dots = [], mx = 0, my = 0, run = false, conv = null, heroOn = true;
+  function size() {
+    const dpr = Math.min(devicePixelRatio || 1, 2); W = innerWidth; H = innerHeight;
+    cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    dots = Array.from({ length: W < 700 ? 110 : 200 }, (_, i) => ({
+      x: Math.random() * W, y: Math.random() * H, ph: Math.random() * 6.28, sp: .3 + Math.random() * .7,
+      r: .8 + Math.random() * 1.5, c: i % 7 === 0, k: i % 4, u: Math.random(), v: Math.random()
+    }));
+  }
+  const ease = t => 1 - Math.pow(1 - t, 3);
+  function frame(t) {
+    let e = 0;
+    if (conv !== null) { e = ease(Math.min(1, (t - conv) / 900)); }
+    const rects = e ? cards.map(c => c.getBoundingClientRect()) : null;
+    ctx.clearRect(0, 0, W, H);
+    cv.style.opacity = e > .85 ? (1 - (e - .85) / .15) : 1;
+    const pts = [];
+    for (const d of dots) {
+      let x = d.x + Math.sin(t / 1600 * d.sp + d.ph) * 14 + mx * 26 * d.r;
+      let y = d.y + Math.cos(t / 1900 * d.sp + d.ph) * 14 + my * 26 * d.r;
+      if (e) { const r = rects[d.k]; x += (r.left + 12 + d.u * (r.width - 24) - x) * e; y += (r.top + 12 + d.v * (r.height - 24) - y) * e; }
+      pts.push(x, y);
+      ctx.globalAlpha = d.c ? .5 : .18;
+      ctx.fillStyle = d.c ? '#B4471F' : '#0F0F0F';
+      ctx.beginPath(); ctx.arc(x, y, d.r, 0, 6.283); ctx.fill();
+    }
+    const la = .07 * (1 - e * 2);
+    if (la > 0) {
+      ctx.strokeStyle = '#0F0F0F'; ctx.lineWidth = .6;
+      for (let i = 0; i < pts.length; i += 2) for (let j = i + 2; j < pts.length; j += 2) {
+        const dx = pts[i] - pts[j], dy = pts[i + 1] - pts[j + 1], q = dx * dx + dy * dy;
+        if (q < 3200) { ctx.globalAlpha = la * (1 - q / 3200); ctx.beginPath(); ctx.moveTo(pts[i], pts[i + 1]); ctx.lineTo(pts[j], pts[j + 1]); ctx.stroke(); }
+      }
+    }
+    ctx.globalAlpha = 1;
+    if (e >= 1) { run = false; cv.style.opacity = 0; return; }       // done: stop drawing
+    if (!heroOn && conv === null) { run = false; return; }           // off screen: pause
+    requestAnimationFrame(frame);
+  }
+  const start = () => { if (!run) { run = true; requestAnimationFrame(frame); } };
+  const condense = () => { if (conv === null) { conv = performance.now(); start(); } };
+  function boot() {
+    size(); start();
+    addEventListener('resize', () => { size(); });
+    addEventListener('pointermove', e => { mx = e.clientX / W - .5; my = e.clientY / H - .5; }, { passive: true });
+    new IntersectionObserver(([en]) => {
+      heroOn = en.isIntersecting;
+      if (heroOn && conv !== null && scrollY < H * .3) { conv = null; cv.style.opacity = 1; }  // back at the top: drift again
+      if (heroOn) start();
+    }, { threshold: .25 }).observe(hero);
+    new IntersectionObserver(([en]) => { if (en.isIntersecting) condense(); }, { threshold: .3 }).observe(think);
+  }
+  document.getElementById('ask').addEventListener('click', ev => { ev.preventDefault(); condense(); think.scrollIntoView({ behavior: 'smooth' }); });
+  // draw after the page is up, so the field never delays content
+  ('requestIdleCallback' in window) ? requestIdleCallback(boot, { timeout: 600 }) : setTimeout(boot, 200);
+})();
+
 if (reduce) document.querySelectorAll('video').forEach(v => { v.removeAttribute('autoplay'); v.pause(); });
 </script>
 </body>
