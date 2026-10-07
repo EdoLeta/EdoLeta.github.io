@@ -12,6 +12,9 @@
   --card-line:#E6E2DB;
   --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .4 0 0 0 0 .35 0 0 0 0 .3 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   --page-tex:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .55' numOctaves='2' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .40 0 0 0 0 .34 0 0 0 0 .27 0 0 0 .07 0'/%3E%3C/filter%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='9' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .38 0 0 0 0 .32 0 0 0 0 .26 0 0 0 .045 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  --tex-grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .40 0 0 0 0 .34 0 0 0 0 .27 0 0 0 .055 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
+  --tex-fine:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .40 0 0 0 0 .34 0 0 0 0 .27 0 0 0 .04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
+  --tex-cotton:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012' numOctaves='3' seed='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .40 0 0 0 0 .34 0 0 0 0 .27 0 0 0 .05 0'/%3E%3C/filter%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='5' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .40 0 0 0 0 .34 0 0 0 0 .27 0 0 0 .035 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23c)'/%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
   --orange:#F08A3C;
   --wash:#F7F6F4;
   --ink:#0F0F0F;
@@ -624,6 +627,13 @@ a.pcard:hover .status i{transform:scale(1.5)}
 .ov p b{color:var(--ink);font-weight:600}
 @media(max-width:900px){.ov{grid-template-columns:repeat(2,minmax(0,1fr))}.ov > div:first-child{grid-column:1/-1}}
 @media(max-width:520px){.ov{grid-template-columns:minmax(0,1fr)}}
+
+/* each page gets its own paper, same palette */
+body[data-tex="grain"]{background:var(--tex-grain),var(--page)}
+body[data-tex="linen"]{background:var(--page-tex),var(--page)}
+body[data-tex="grid"]{background:radial-gradient(circle,rgba(70,52,36,.11) 1px,transparent 1.3px) 0 0/22px 22px,var(--tex-fine),var(--page)}
+body[data-tex="cotton"]{background:var(--tex-cotton),var(--page)}
+body[data-tex="laid"]{background:repeating-linear-gradient(90deg,rgba(70,52,36,.022) 0 1px,transparent 1px 32px),repeating-linear-gradient(0deg,rgba(70,52,36,.012) 0 1px,transparent 1px 4px),var(--tex-fine),var(--page)}
 
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
