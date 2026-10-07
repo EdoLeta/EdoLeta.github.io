@@ -152,10 +152,10 @@ main,.foot{position:relative;z-index:1}
 .stage .sec-sub{margin-bottom:var(--s5)}
 
 /* the jump */
-.go{display:inline-flex;align-items:center;gap:var(--s3);margin-top:var(--s6);padding:12px 20px 12px 14px;border-radius:var(--r-pill);background:var(--ink);color:#fff;font-size:var(--fs-ui);line-height:var(--lh-ui);font-weight:600;opacity:0;animation:rise .8s var(--ease) 1.25s forwards;transition:transform var(--dur-2) var(--ease)}
-.go:hover{transform:translateY(-2px)}
+.go{display:inline-flex;align-items:center;gap:var(--s3);margin-top:var(--s6);padding:11px 20px 11px 14px;border-radius:var(--r-pill);background:var(--grain),var(--card);border:1px solid var(--card-line);box-shadow:0 1px 2px rgba(60,40,25,.05);color:var(--ink);font-size:var(--fs-ui);line-height:var(--lh-ui);font-weight:600;opacity:0;animation:rise .8s var(--ease) 1.25s forwards;transition:transform var(--dur-2) var(--ease),border-color var(--dur-1)}
+.go:hover{transform:translateY(-2px);border-color:var(--ink)}
 .go .wave{display:inline-flex;align-items:center;gap:2px;height:16px}
-.go .wave i{width:3px;border-radius:2px;background:#F08A3C;animation:wv 1.1s ease-in-out infinite}
+.go .wave i{width:3px;border-radius:2px;background:var(--accent);animation:wv 1.1s ease-in-out infinite}
 .go .wave i:nth-child(1){height:6px;animation-delay:-.4s}.go .wave i:nth-child(2){height:14px;animation-delay:-.2s}.go .wave i:nth-child(3){height:9px;animation-delay:-.6s}.go .wave i:nth-child(4){height:12px}
 @keyframes wv{50%{transform:scaleY(.4)}}
 
