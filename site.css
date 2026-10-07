@@ -11,6 +11,7 @@
   --card:#FCFBF9;
   --card-line:#E6E2DB;
   --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .4 0 0 0 0 .35 0 0 0 0 .3 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --page-tex:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .38 0 0 0 0 .32 0 0 0 0 .26 0 0 0 .055 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
   --orange:#F08A3C;
   --wash:#F7F6F4;
   --ink:#0F0F0F;
@@ -59,7 +60,7 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
-  background:var(--page);color:var(--ink);
+  background:var(--page-tex),var(--page);color:var(--ink);
   font-family:var(--sans);font-size:var(--fs-prose);line-height:1.6;
   -webkit-font-smoothing:antialiased;overflow-x:hidden;
 }
@@ -612,6 +613,15 @@ a.pcard:hover .status i{transform:scale(1.5)}
   .cx-score > div{grid-template-columns:96px minmax(0,1fr)}.cx-score > div > span:last-child{grid-column:1/-1}
   .cx-layers > div{grid-template-columns:minmax(0,1fr);gap:var(--s1)}
 }
+
+/* project overview: roles, collaboration, tools, duration */
+.ov{display:grid;grid-template-columns:minmax(0,1.7fr) repeat(var(--n,3),minmax(0,1fr));gap:var(--s5) var(--s6);margin-top:calc(var(--s6) + var(--s2));padding:var(--s5) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ov h4{font-size:var(--fs-ui);line-height:var(--lh-ui);font-weight:600;color:var(--ink);margin-bottom:var(--s3)}
+.ov p{font-size:var(--fs-ui);line-height:var(--lh-ui);color:var(--body)}
+.ov p + p{margin-top:var(--s2)}
+.ov p b{color:var(--accent);font-weight:600}
+@media(max-width:900px){.ov{grid-template-columns:repeat(2,minmax(0,1fr))}.ov > div:first-child{grid-column:1/-1}}
+@media(max-width:520px){.ov{grid-template-columns:minmax(0,1fr)}}
 
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
