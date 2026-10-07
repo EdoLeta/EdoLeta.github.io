@@ -619,7 +619,7 @@ a.pcard:hover .status i{transform:scale(1.5)}
 .ov h4{font-size:var(--fs-ui);line-height:var(--lh-ui);font-weight:600;color:var(--ink);margin-bottom:var(--s3)}
 .ov p{font-size:var(--fs-ui);line-height:var(--lh-ui);color:var(--body)}
 .ov p + p{margin-top:var(--s2)}
-.ov p b{color:var(--accent);font-weight:600}
+.ov p b{color:var(--ink);font-weight:600}
 @media(max-width:900px){.ov{grid-template-columns:repeat(2,minmax(0,1fr))}.ov > div:first-child{grid-column:1/-1}}
 @media(max-width:520px){.ov{grid-template-columns:minmax(0,1fr)}}
 
