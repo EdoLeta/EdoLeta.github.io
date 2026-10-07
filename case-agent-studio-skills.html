@@ -33,10 +33,11 @@
     <h1>AI Agent Studio: reusable skills for multi-agent systems</h1>
     <p class="cs-summary">I built plug-in skills (bias handling, voice and tone, output formatting) and a visual/UI evaluator, so multi-agent systems inherit Oracle’s behavioral rules and generated pages can be scored against the spec.</p>
 
-    <div class="ov" style="--n:2">
+    <div class="ov" style="--n:3">
       <div><h4>Roles &amp; responsibilities</h4><p><b>Prompt engineering:</b> bias, voice and tone, and formatting skills</p><p><b>Systems design:</b> layering into core, on-demand and code</p><p><b>Tooling:</b> the visual/UI evaluator</p></div>
       <div><h4>Collaboration</h4><p>Platform engineers</p><p>Information development</p></div>
       <div><h4>Built with</h4><p>Oracle AI Agent Studio</p><p>Chrome extension</p></div>
+      <div><h4>Impact</h4><p>Published internally as the skill set for teams on AI Agent Studio</p></div>
     </div>
     <div class="lead">
       <p class="lead-k">The decision</p>
@@ -208,50 +209,6 @@
       </div>
       <figcaption>Illustration: a skill file, and three agents answering in one consistent style once it is loaded.</figcaption>
     </figure>
-    <div class="cs-section">
-      <h2>Example</h2>
-      <p>One formatting rule, traced from the guideline to a sample response with fictional plans.</p>
-      <div class="cx">
-        <div class="cx-me">Compare Plan A, B and C.</div>
-        <div class="cx-turn"><div class="cx-av" aria-hidden="true">AI</div><div>
-          <div class="cx-rich">
-            <div class="cx-tw" role="region" aria-label="Sample plan comparison" tabindex="0"><table class="cx-tbl"><thead><tr><th scope="col">Plan</th><th scope="col">Seats</th><th scope="col">Storage</th><th scope="col">Support</th></tr></thead><tbody>
-              <tr><td>Plan A</td><td>5</td><td>50 GB</td><td>Email</td></tr>
-              <tr><td>Plan B</td><td>25</td><td>500 GB</td><td>Chat</td></tr>
-              <tr><td>Plan C</td><td>100</td><td>2 TB</td><td>Phone</td></tr></tbody></table></div>
-          </div>
-          <div class="cx-ok"><span>Table for 3+ items</span><span>Header row</span><span>Six columns at most</span></div>
-        </div></div>
-      </div>
-      <div class="cx-rule">
-        <div class="cx-k">Where the rule lives</div>
-        <p class="cx-lead">The guideline says to use a table when comparing three or more items. <b>I split it across three layers</b> so only one line rides along on every request.</p>
-        <dl class="cx-layers">
-          <div><dt>Always on</dt><dd>Compare 3 or more items across shared attributes in a table.</dd></div>
-          <div><dt>On demand</dt><dd>Header row, one attribute per column, six columns at most, units in the header, no merged cells.</dd></div>
-          <div><dt>Code check</dt><dd><code>check_table(output):
-  fail if there is no header row
-  fail if columns &gt; 6</code></dd></div>
-        </dl>
-      </div>
-    </div>
-    <div class="cs-section">
-      <h2>What I chose not to do</h2>
-      <ul class="nots">
-        <li><b>Not everything always on.</b>Every line in an always-on skill costs tokens on every request, so only a thin core stays resident.</li>
-        <li><b>Not guidance left in documents.</b>Documents do not run inside an agent. The rules became skills that do.</li>
-        <li><b>Not trusting the model to check itself.</b>Rules a machine can verify, like a table having a header row, moved into code.</li>
-      </ul>
-    </div>
-
-    <div class="cs-section">
-      <h2 data-toc="Evidence of impact">Evidence of impact</h2>
-      <ul class="dp-ev">
-        <li><span class="ev-tag ship">Shipped / reach</span><span>Published internally as the skill set for teams building on Oracle AI Agent Studio.</span></li>
-        <li><span class="ev-tag illus">Illustrative</span><span>The rule trace and sample response above are constructed to explain the layering. The plans and the code check are not real product content.</span></li>
-      </ul>
-      <p class="ev-legend">Every claim is labeled: where the work ships, what was observed, what was measured, or what is illustrative.</p>
-    </div>
     <div class="cs-learned">
       <h2>What I learned</h2>
       <p>A skill has a budget. Every line costs tokens on every request, so write only what changes model behavior and push everything deterministic into code. And a standard is only real once something can check it.</p>

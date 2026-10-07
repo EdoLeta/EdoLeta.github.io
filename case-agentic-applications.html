@@ -33,10 +33,11 @@
     <h1>Fusion Claw: Outcome Framework</h1>
     <p class="cs-summary">AI agents now finish whole tasks and hand back a result. I designed the framework that makes every result clear, consistent, and on brand, whichever agent produced it.</p>
 
-    <div class="ov" style="--n:2">
+    <div class="ov" style="--n:3">
       <div><h4>Roles &amp; responsibilities</h4><p><b>Prompt engineering:</b> intent taxonomy and component-selection rules, written as skills</p><p><b>Design engineering:</b> design-to-runtime mapping and widget JSON</p><p><b>Design systems:</b> visual style guide and best practices</p></div>
       <div><h4>Collaboration</h4><p>Engineering</p><p>Design system team</p></div>
       <div><h4>Built with</h4><p>System prompts and skills</p><p>Widget JSON schema</p><p>Lint gates</p></div>
+      <div><h4>Impact</h4><p>Shipped in Fusion Agentic Applications</p><p>Across HCM, ERP, CX and SCM, <a class="cs-link" href="https://www.oracle.com/news/announcement/oracle-introduces-fusion-agentic-applications-2026-03-24/" target="_blank" rel="noopener">announced by Oracle</a></p></div>
     </div>
     <div class="lead">
       <p class="lead-k">The decision</p>
@@ -105,7 +106,7 @@
           <tr><td>A known component is needed</td><td data-l="The agent">Emits widget JSON, not free-form markup</td><td data-l="Enforced by">Schema and lint gates</td></tr>
         </tbody>
       </table>
-      <p class="dec-note">Simplified, as in the example below. It is not the production schema.</p>
+      <p class="dec-note">Simplified. It is not the production schema.</p>
     </div>
 
     <div class="cs-section">
@@ -117,58 +118,6 @@
       </div>
     </div>
 
-    <div class="cs-section">
-      <h2>Example</h2>
-      <p>A fictional finance question about sample invoices, answered before and after the rule.</p>
-      <div class="cx">
-        <div class="cx-me">Which invoices are overdue?</div>
-        <div class="cx-turn"><div class="cx-av dim" aria-hidden="true">AI</div><div>
-          <div class="cx-who">Before</div>
-          <div class="cx-bub">Looks like <u>a few invoices</u> are past due. Sample Co A <u>seems to owe quite a bit</u>, and there <u>might be a couple</u> of others, so you <u>may want to follow up soon</u>.</div>
-          <div class="cx-miss"><span>No headline number</span><span>No list</span><span>No sources</span><span>Next step left to you</span></div>
-        </div></div>
-        <div class="cx-turn"><div class="cx-av" aria-hidden="true">AI</div><div>
-          <div class="cx-who a">After</div>
-          <div class="cx-rich">
-            <p class="cx-num">3 invoices overdue<span>$18,250 total</span></p>
-            <div class="cx-qa"><span class="p">Escalate INV-1042</span><span>Remind INV-1057</span><span>Remind INV-1063</span></div>
-            <div class="cx-tw" role="region" aria-label="Sample overdue invoices" tabindex="0"><table class="cx-tbl"><thead><tr><th scope="col">Invoice</th><th scope="col">Customer</th><th scope="col" class="r">Amount</th><th scope="col" class="r">Days overdue</th></tr></thead><tbody>
-              <tr><td>INV-1042</td><td>Sample Co A</td><td class="r">$6,200</td><td class="r">41</td></tr>
-              <tr><td>INV-1057</td><td>Sample Co B</td><td class="r">$8,950</td><td class="r">18</td></tr>
-              <tr><td>INV-1063</td><td>Sample Co C</td><td class="r">$3,100</td><td class="r">7</td></tr></tbody></table></div>
-            <p class="cx-src">Source: sample receivables ledger. Calculation: amount past due, summed. Assumption: net-30 terms.</p>
-          </div>
-          <div class="cx-ok"><span>Headline first</span><span>Actions, not advice</span><span>Table for 3+ items</span><span>Evidence attached</span></div>
-        </div></div>
-      </div>
-      <div class="cx-rule">
-        <div class="cx-k">The rule I owned</div>
-        <p class="cx-lead">The model declares intent. <b>The product owns rendering.</b> For an overdue question the contract is fixed, so every answer comes back in this shape.</p>
-        <pre class="cx-mono" tabindex="0" aria-label="Simplified contract">intent: overdue_summary
-answer.headline: "3 invoices overdue, $18,250"
-answer.actions: [remind, remind, escalate]
-artifact.component: table   # rule: 3+ comparable items
-evidence: [source, calculation, assumption]</pre>
-        <p class="cx-cap">A simplified, illustrative contract. It is not the production schema.</p>
-      </div>
-    </div>
-    <div class="cs-section">
-      <h2>What I chose not to do</h2>
-      <ul class="nots">
-        <li><b>Not a longer spec.</b>Teams do not want to read a whole spec, so I wrote a style guide a model can follow and short best practices people will use.</li>
-        <li><b>Not free-form model output.</b>When the model decides both what to say and how it looks, layouts drift. The model declares intent, and the product owns rendering.</li>
-        <li><b>Not every rule in the prompt.</b>Rules that need no model sit in schema and code. Consistency does not depend on the model behaving, and fewer tokens ride along in every request.</li>
-      </ul>
-    </div>
-
-    <div class="cs-section">
-      <h2 data-toc="Evidence of impact">Evidence of impact</h2>
-      <ul class="dp-ev">
-        <li><span class="ev-tag ship">Shipped / reach</span><span>Part of Fusion Agentic Applications across HCM, ERP, CX and SCM, announced by <a class="cs-link" href="https://www.oracle.com/news/announcement/oracle-introduces-fusion-agentic-applications-2026-03-24/" target="_blank" rel="noopener">Oracle</a>.</span></li>
-        <li><span class="ev-tag illus">Illustrative</span><span>The overdue-invoice example above was constructed to explain the design. It is not a real customer, invoice or product screen.</span></li>
-      </ul>
-      <p class="ev-legend">Every claim is labeled: where the work ships, what was observed, what was measured, or what is illustrative.</p>
-    </div>
     <div class="cs-learned">
       <h2>What I learned</h2>
       <p>Governing AI output is a systems design problem, not a documentation problem. For every rule, the real decision is where it lives: in the prompt, the schema, or the code.</p>
