@@ -10,13 +10,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="./site.css?v=57" />
+<link rel="stylesheet" href="./site.css?v=58" />
 <style>
 .band{height:320px;border-radius:var(--r-lg);overflow:hidden;background:#14181C;margin-bottom:var(--s5)}
 .band video{display:block;width:100%;height:100%;object-fit:cover}
 .org-row{display:flex;align-items:center;gap:var(--s4)}
-.org-mark{width:var(--mark);height:var(--mark);border-radius:var(--r-md);border:1px solid var(--line);background:var(--paper);display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:var(--s2)}
-.org-mark img{width:100%;height:100%;object-fit:contain}
+.org-mark{width:var(--mark);height:var(--mark);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.org-mark img{display:block;width:100%;height:auto}
 .org-title{display:flex;flex-direction:column;min-width:0;line-height:var(--lh-small)}
 .org-title b{font-size:var(--fs-title);line-height:var(--lh-title);font-weight:600;letter-spacing:-.015em}
 .org-title span{font-size:var(--fs-small);line-height:var(--lh-small);color:var(--soft)}
@@ -33,7 +33,7 @@
 }
 </style>
 </head>
-<body data-tex="linen">
+<body data-tex="grid">
 
 <header class="nav">
   <div class="nav-in">
@@ -59,7 +59,7 @@
     </div>
 
     <div class="org-row">
-      <span class="org-mark"><img src="./assets/logos/oracle.svg" alt="Oracle" width="24" height="24" /></span>
+      <span class="org-mark"><img src="./assets/logos/oracle-o.svg" alt="Oracle" width="40" height="26" /></span>
       <div class="org-title">
         <b>Oracle</b>
         <span>Senior User Experience Designer, IC3 · Redwood City, CA</span>
@@ -72,8 +72,8 @@
       <h2 class="lbl">How it connects</h2>
       <p class="arc-intro">These four projects share one goal: AI responses that are consistent across products. Each one handles a different part of the work.</p>
       <div class="arc">
-        <a href="./case-response-quality"><span class="v">Define</span><b>Guideline</b><span class="d">Sets the standard for a good response.</span></a>
-        <a href="./case-metrics-evals"><span class="v">Measure</span><b>Metrics and evaluations</b><span class="d">Checks whether responses meet it.</span></a>
+        <a href="./case-response-quality"><span class="v">Define</span><b>Guideline</b><span class="d">The standard for a good answer.</span></a>
+        <a href="./case-metrics-evals"><span class="v">Measure</span><b>Metrics and evaluations</b><span class="d">Checks responses against it.</span></a>
         <a href="./case-agent-studio-skills"><span class="v">Enforce</span><b>AI Agent Studio skills</b><span class="d">Rules that run inside agents.</span></a>
         <a href="./case-agentic-applications"><span class="v">Ship</span><b>Fusion Claw</b><span class="d">One structure for every outcome.</span></a>
       </div>
@@ -84,7 +84,7 @@
       <div class="pcard-grid">
         <div class="pc">
           <a class="pcard" href="./case-agentic-applications">
-            <div class="thumb"><span class="ph"><img src="./assets/fusion-claw-thumb-336.webp" srcset="./assets/fusion-claw-thumb-336.webp 336w, ./assets/fusion-claw-thumb-672.webp 672w" sizes="(max-width:420px) 100vw, 168px" width="168" height="105" alt="" /></span></div>
+            <div class="thumb"><span class="ph"><img src="./assets/fusion-claw-v2-thumb-672.webp" srcset="./assets/fusion-claw-v2-thumb-336.webp 336w, ./assets/fusion-claw-v2-thumb-672.webp 672w, ./assets/fusion-claw-v2-thumb-1152.webp 1152w" sizes="(max-width:420px) 100vw, 168px" width="168" height="105" alt="" /></span></div>
             <div class="pcard-text">
               <span class="kmeta"><span class="kind">Case study</span><span class="status"><i class="live"></i>Shipped</span></span>
               <h3>Fusion Claw: Outcome Framework</h3>

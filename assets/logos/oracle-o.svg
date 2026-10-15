@@ -1,4 +1,1 @@
-<?xml version="1.0"?>
-<svg xmlns='http://www.w3.org/2000/svg' width='32' height='20'>
-<path fill="none" stroke="#C74634" stroke-width="4" d="m10,2a8,8 0 1,0 0,16h12a8,8 0 1,0 0-16z"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 155 100" width="155" height="100"><path fill="#C74634" fill-rule="evenodd" d="M50 0H105A50 50 0 0 1 105 100H50A50 50 0 0 1 50 0ZM50 19A31 31 0 0 0 50 81H105A31 31 0 0 0 105 19Z"/></svg>
