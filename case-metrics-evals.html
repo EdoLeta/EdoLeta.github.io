@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="./site.css?v=58" />
+<link rel="stylesheet" href="./site.css?v=59" />
 </head>
 <body data-tex="linen">
 
@@ -64,7 +64,45 @@
     </div>
     <div class="cs-section">
       <h2>The solution</h2>
-      <p class="sol-intro">I owned the metric definitions, the anchor examples and the test-case guidance. Partner teams brought the evaluation infrastructure. My focus was standardization: one way to measure quality that every team uses.</p>
+      <p class="sol-intro">One way to measure quality that every team uses. I owned the metric definitions, anchor examples and test-case guidance. Partner teams brought the evaluation infrastructure.</p>
+      <figure class="score" data-mode="alone">
+        <div class="score-bar">
+          <span class="score-k">Same reply, two ways to score it</span>
+          <div class="seg" role="group" aria-label="Scoring mode">
+            <button type="button" data-set="alone" aria-pressed="true">Reply alone</button>
+            <button type="button" data-set="context" aria-pressed="false">Whole conversation</button>
+          </div>
+        </div>
+        <div class="score-grid">
+          <div class="convo">
+            <div class="turn-group earlier">
+              <span class="score-k">Turn 1<em class="if-alone"> · not seen by the scorer</em><em class="if-context"> · the context that matters</em></span>
+              <p class="msg user">I just moved from the Austin office to <mark>London</mark>.</p>
+              <p class="msg bot">Welcome to London. I can help with benefits, payroll or time off.</p>
+            </div>
+            <div class="turn-group">
+              <span class="score-k">Turn 2 · scored</span>
+              <p class="msg user">How many vacation days do I get this year?</p>
+              <p class="msg bot scored">Full-time employees get 15 days of paid vacation a year, plus 10 company holidays. You can see your balance under Me &gt; Time Off.</p>
+              <p class="flag if-context">Answers with the US policy. The user said London in turn 1.</p>
+            </div>
+          </div>
+          <div class="card">
+            <span class="score-k">Scorecard</span>
+            <dl class="metrics">
+              <div><dt>Readability</dt><dd><span class="dots" style="--v:5"></span><b>5</b></dd></div>
+              <div class="swing"><dt>Completeness</dt><dd><span class="dots" style="--v:5"></span><b>5</b></dd></div>
+              <div><dt>Word count</dt><dd><span class="dots" style="--v:5"></span><b>5</b></dd></div>
+            </dl>
+            <p class="verdict" aria-live="polite"><span class="pill">Pass</span><span class="why">Clear, complete, right length.</span></p>
+            <div class="fix if-context">
+              <span class="score-k">Reply that passes in context</span>
+              <p class="msg bot">In the UK you get 25 days of paid vacation, plus 8 bank holidays. You can see your balance under Me &gt; Time Off.</p>
+            </div>
+          </div>
+        </div>
+        <figcaption>Illustration with a made-up HR conversation. Switch the mode to see why multi-turn scoring caught what single-turn missed.</figcaption>
+      </figure>
       <div class="sol-grid">
         <div class="sol"><div class="sol-ill"><svg viewBox="0 0 120 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="14" y="10" width="66" height="32" rx="9"/><path d="M28 42v11l12-11"/><path d="M26 22h30M26 30h20"/><circle class="ink" cx="98" cy="26" r="10"/><path class="ink" d="M93 26l4 4 7-8"/></svg></div><span class="n">01</span><h3>Single-turn scoring</h3><p>Each response is scored on its own, with a definition, a scale and anchor examples.</p><div class="chips"><span class="chip">Readability</span><span class="chip">Completeness</span><span class="chip">Word count</span></div></div>
         <div class="sol"><div class="sol-ill"><svg viewBox="0 0 120 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="10" y="6" width="44" height="18" rx="7"/><rect x="40" y="24" width="44" height="18" rx="7"/><rect class="ink" x="70" y="42" width="44" height="18" rx="7"/><path d="M54 15h8M84 33h8" stroke-dasharray="2 4"/></svg></div><span class="n">02</span><h3>Multi-turn scoring</h3><p>The same measures applied across a whole conversation, so a reply that is fine alone can still be caught when it fails in context.</p><div class="chips"><span class="chip">Readability</span><span class="chip">Completeness</span><span class="chip">Word count</span></div></div>
@@ -72,7 +110,7 @@
         <div class="sol"><div class="sol-ill"><svg viewBox="0 0 120 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 50a38 38 0 0176 0"/><path class="ink" d="M60 50l20-20"/><circle cx="60" cy="50" r="4"/><path d="M22 50h76" stroke-dasharray="2 5"/></svg></div><span class="n">04</span><h3>Evaluation procedure</h3><p>Human versus model grading, rater calibration, sample sizes, and reporting that compares across releases.</p></div>
       </div>
     </div>
-    <figure class="diagram">
+    <figure class="diagram" hidden>
       <div class="pair">
         <svg viewBox="0 0 400 320" role="img" aria-label="Illustration of a metric card for completeness: a definition, a five-step scale and two anchor examples" font-family="Inter, system-ui, sans-serif">
   <rect x="8" y="8" width="384" height="304" rx="18" fill="#FFFFFF" stroke="#E2DFD9" stroke-width="1.5"/>
@@ -149,5 +187,26 @@
 </footer>
 
 <script src="./case.js?v=2"></script>
+<script>
+/* Scored reply: flips the scorecard between scoring the reply alone and scoring it in the conversation. */
+(function () {
+  var fig = document.querySelector('.score');
+  if (!fig) return;
+  var swing = fig.querySelector('.swing');
+  var pill = fig.querySelector('.verdict .pill');
+  var why = fig.querySelector('.verdict .why');
+  var btns = fig.querySelectorAll('.seg button');
+  function set(mode) {
+    var ctx = mode === 'context';
+    fig.dataset.mode = mode;
+    swing.querySelector('.dots').style.setProperty('--v', ctx ? 1 : 5);
+    swing.querySelector('b').textContent = ctx ? '1' : '5';
+    pill.textContent = ctx ? 'Fail' : 'Pass';
+    why.textContent = ctx ? 'Complete for the wrong country.' : 'Clear, complete, right length.';
+    btns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.set === mode)); });
+  }
+  btns.forEach(function (b) { b.addEventListener('click', function () { set(b.dataset.set); }); });
+})();
+</script>
 </body>
 </html>

@@ -648,3 +648,47 @@ body[data-tex="laid"]{background:repeating-linear-gradient(90deg,rgba(70,52,36,.
   .pcard,.pcard .ph,.pcard h3,a.pcard .status i,.icon-link,.pcard .hover-note{transition:none}
   a.pcard:hover,a.pcard:hover .ph,a.pcard:hover h3,a.pcard:hover .status i,.icon-link:hover,a.pcard:hover .ext svg{transform:none}
 }
+
+/* ---------- scored reply (metrics case study) ---------- */
+.score{margin-top:var(--s5);padding:var(--s5);border:1px solid var(--card-line);border-radius:var(--r-lg);background:var(--grain),var(--card)}
+.score-k{display:block;font-family:var(--mono);font-size:var(--fs-tag);line-height:var(--lh-tag);letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-bottom:var(--s2)}
+.score-k em{font-style:normal}
+.score-bar{display:flex;justify-content:space-between;align-items:center;gap:var(--s4);flex-wrap:wrap;margin-bottom:var(--s5)}
+.score-bar .score-k{margin:0}
+.seg{display:inline-flex;padding:3px;border:1px solid var(--card-line);border-radius:var(--r-pill);background:var(--paper)}
+.seg button{font:inherit;font-size:var(--fs-small);line-height:var(--lh-small);font-weight:500;color:var(--soft);background:none;border:0;padding:var(--s1) var(--s3);border-radius:var(--r-pill);cursor:pointer;transition:background var(--dur-1),color var(--dur-1)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.score-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:var(--s5);align-items:start}
+.convo{display:grid;gap:var(--s4)}
+.turn-group{display:grid;gap:var(--s2);transition:opacity var(--dur-2)}
+.cs-section .msg{font-size:var(--fs-ui);line-height:var(--lh-ui);color:var(--ink);padding:var(--s2) var(--s3);border-radius:var(--r-lg);max-width:88%;margin:0}
+.msg.user{justify-self:end;background:var(--ink);color:#fff;border-bottom-right-radius:var(--r-sm)}
+.cs-section .msg.user{color:#fff}
+.msg.bot{justify-self:start;background:var(--paper);border:1px solid var(--card-line);border-bottom-left-radius:var(--r-sm)}
+.msg mark{background:none;color:inherit;border-radius:3px;padding:0 2px;transition:background var(--dur-1),color var(--dur-1)}
+.cs-section .flag{font-size:var(--fs-small);line-height:var(--lh-small);color:var(--accent);font-weight:500;margin:0}
+.score .card{padding:var(--s4);border:1px solid var(--card-line);border-radius:var(--r-lg);background:var(--paper)}
+.metrics{display:grid;gap:var(--s3);margin-bottom:var(--s4)}
+.metrics > div{display:flex;justify-content:space-between;align-items:center;gap:var(--s3)}
+.metrics dt{font-size:var(--fs-ui);line-height:var(--lh-ui);color:var(--body)}
+.metrics dd{display:flex;align-items:center;gap:var(--s3)}
+.metrics dd b{font-size:var(--fs-ui);font-weight:600;width:1ch;text-align:right;font-variant-numeric:tabular-nums}
+.dots{--v:5;width:76px;height:8px;border-radius:4px;background:
+  linear-gradient(90deg,currentColor calc(var(--v) * 20%),transparent 0) 0 0/100% 100% no-repeat,var(--line);color:#3F7A4E;transition:color var(--dur-1)}
+.cs-section .verdict{display:flex;align-items:center;gap:var(--s3);padding-top:var(--s3);border-top:1px solid var(--line);margin:0;font-size:var(--fs-small);line-height:var(--lh-small)}
+.pill{font-size:var(--fs-tag);line-height:var(--lh-tag);font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:2px var(--s2);border-radius:var(--r-pill);background:#E3EEE5;color:#2F5E3B}
+.fix{margin-top:var(--s4)}
+.fix .msg{max-width:none;border-color:#BFD6C4}
+.score figcaption{font-size:var(--fs-small);line-height:var(--lh-small);color:var(--faint);margin-top:var(--s4)}
+.score .if-context{display:none}
+.score[data-mode="context"] .if-context{display:block}
+.score[data-mode="context"] em.if-context{display:inline}
+.score[data-mode="context"] .if-alone{display:none}
+.score[data-mode="alone"] .earlier{opacity:.35}
+.score[data-mode="context"] .msg mark{background:var(--accent);color:#fff}
+.score[data-mode="context"] .msg.scored{border-color:var(--accent)}
+.score[data-mode="context"] .swing dt,.score[data-mode="context"] .swing b{color:var(--accent);font-weight:600}
+.score[data-mode="context"] .swing .dots{color:var(--accent)}
+.score[data-mode="context"] .pill{background:#F6E1D8;color:var(--accent)}
+@media(max-width:760px){.score{padding:var(--s4)}.score-grid{grid-template-columns:1fr}.seg button{min-height:40px;padding:0 var(--s4)}}
+@media(prefers-reduced-motion:reduce){.turn-group,.seg button,.msg mark,.dots{transition:none}}
