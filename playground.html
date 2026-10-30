@@ -10,89 +10,192 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="./site.css?v=59" />
+<script>try{var d=document.documentElement,t=localStorage.getItem("theme");d.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");var b=new URLSearchParams(location.search).get("bg");if(b)sessionStorage.setItem("bg",b);b=b||sessionStorage.getItem("bg");if(b)d.dataset.bg=b}catch(e){}</script>
+<link rel="stylesheet" href="./site.css?v=63" />
 <style>
-/* Playground: mid-size cards, full uncropped 16:10 previews beside the text */
-.pcard-grid.big{grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr));gap:var(--s5)}
-.pcard-grid.big .pcard{grid-template-columns:232px minmax(0,1fr);gap:var(--s5);padding:var(--s5)}
-.pcard-grid.big .thumb{aspect-ratio:16/10}
-.pcard-grid.big .pcard h3{margin-top:var(--s2)}
-@container (max-width:420px){.pcard-grid.big .pcard{grid-template-columns:minmax(0,1fr)}}
+/* Playground: each card carries a small demo of what the project is */
+.filters{display:flex;flex-wrap:wrap;gap:var(--s2);margin-bottom:var(--s6)}
+.filters button{min-height:40px;padding:0 var(--s4);border:1px solid var(--line-2);border-radius:var(--r-pill);font-size:var(--fs-ui);font-weight:500;color:var(--body);text-align:center;transition:background var(--dur-1),color var(--dur-1),border-color var(--dur-1)}
+.filters button:hover{border-color:var(--ink);color:var(--ink)}
+.filters button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--on-ink)}
+.filters button span{font:500 11px/1 var(--mono);opacity:.7;margin-left:6px}
+
+.play{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s5)}
+@media(max-width:860px){.play{grid-template-columns:minmax(0,1fr)}}
+.pl{position:relative;display:flex;flex-direction:column;border:1px solid var(--card-line);border-radius:18px;background:var(--card);overflow:hidden;isolation:isolate;
+  transition:transform var(--dur-2) var(--ease),border-color var(--dur-1),opacity .35s var(--ease)}
+.pl::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:0;transition:opacity var(--dur-2);
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--accent) 12%,transparent),transparent 60%)}
+.pl:hover{transform:translateY(-3px);border-color:var(--line-2)}
+.pl:hover::before{opacity:1}
+.pl.out{display:none}
+.pl-stage{position:relative;min-height:clamp(320px,30vw,380px);padding:var(--s4) var(--s5) var(--s5);background:#F1EFEA;border-bottom:1px solid var(--card-line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--s4);overflow:hidden}
+.stage-bar{align-self:stretch;display:flex;justify-content:space-between;align-items:center;gap:var(--s3);flex-wrap:wrap}
+.pl-body{display:flex;flex-direction:column;gap:var(--s2);padding:var(--s5) var(--s5) var(--s5)}
+.pl-k{display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap}
+.pl-k .kind{font:500 11px/16px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.pl h3{font-size:var(--fs-h2);line-height:var(--lh-h2);font-weight:600;letter-spacing:-.02em}
+.pl h3 a:hover{color:var(--accent)}
+.pl p{font-size:var(--fs-body);line-height:var(--lh-body);color:var(--body)}
+.pl-go{display:inline-flex;align-items:center;gap:var(--s2);min-height:40px;margin-top:auto;font-size:var(--fs-ui);font-weight:600;color:var(--ink)}
+.pl-go span{transition:transform var(--dur-2) var(--ease)}
+.pl-go:hover span{transform:translateX(4px)}
+.demo-note{font:500 10.5px/16px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#6A6A6A;background:rgba(255,255,255,.85);padding:2px var(--s2);border-radius:6px}
+
+/* segmented control used on the cards */
+.seg2{display:inline-flex;padding:3px;border-radius:var(--r-pill);background:#FFFFFF;border:1px solid #E1DED7}
+.seg2 button{min-height:34px;padding:0 var(--s3);border-radius:var(--r-pill);font-size:var(--fs-small);font-weight:600;color:#5F5F5F;text-align:center}
+.seg2 button[aria-pressed="true"]{background:#2F3A1F;color:#fff}
+
+/* KY Farms: a tiny field journal that switches language */
+.ky{width:min(100%,300px);display:grid;gap:10px;padding:16px;border-radius:20px;background:#FBF6EC;border:1px solid #E8DCC4;box-shadow:0 24px 48px -28px rgba(60,40,25,.45);color:#2B2A22}
+.ky-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.ky-top b{font-family:Georgia,serif;font-size:20px;font-weight:600}
+.ky-row{display:flex;justify-content:space-between;align-items:center;padding:9px 12px;border-radius:12px;background:#fff;border:1px solid #EDE3CF;font-size:14px}
+.ky-row span:last-child{font-weight:600;font-variant-numeric:tabular-nums}
+.ky-mic{display:flex;align-items:center;justify-content:center;gap:8px;padding:9px;border-radius:12px;background:#4F5B2E;color:#fff;font-size:13.5px;font-weight:600}
+.ky [data-t]{transition:opacity .2s}
+.ky.swap [data-t]{opacity:0}
+.has-ky .ky{gap:8px;padding:14px}
+.has-ky .ky-row{padding:7px 12px}
+.has-ky .ky-mic{padding:8px}
+
+/* NMT: pick a phrase, watch it translate */
+.nmt{width:min(100%,360px);display:grid;gap:12px}
+.nmt-chips{display:flex;flex-wrap:wrap;gap:6px}
+.nmt-chips button{min-height:34px;padding:0 12px;border-radius:var(--r-pill);border:1px solid #DCD8D0;background:#fff;font-size:13.5px;color:#3D3D3D;text-align:center}
+.nmt-chips button[aria-pressed="true"]{border-color:#B4471F;color:#B4471F}
+.nmt-box{display:grid;gap:4px;padding:14px 16px;border-radius:14px;background:#fff;border:1px solid #E6E2DB;box-shadow:0 18px 40px -28px rgba(60,40,25,.4)}
+.nmt-box .lang{font:500 10.5px/16px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#6A6A6A}
+.nmt-box .src{font-size:15px;color:#3D3D3D}
+.nmt-box .tgt{font-size:24px;line-height:1.3;font-weight:600;color:#0F0F0F;min-height:1.3em}
+.nmt-box .tgt::after{content:'';display:inline-block;width:2px;height:.9em;margin-left:3px;background:#B4471F;vertical-align:-.1em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* flip cards: image on the front, the story on the back */
+.flip{position:absolute;inset:0;perspective:1200px}
+.flip-in{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .7s var(--ease)}
+.pl.flipped .flip-in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.face img{width:100%;height:100%;object-fit:cover}
+.face.back{transform:rotateY(180deg);background:#1E211C;color:#EDEBE4;padding:clamp(18px,3vw,28px);display:flex;flex-direction:column;justify-content:center;gap:10px}
+.face.back .k{font:500 11px/16px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#E8A07E}
+.face.back p{color:#EDEBE4;font-size:var(--fs-prose);line-height:var(--lh-prose)}
+.flip-btn{position:absolute;top:var(--s3);right:var(--s3);z-index:2;display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 var(--s3);border-radius:var(--r-pill);background:rgba(255,255,255,.92);border:1px solid #E1DED7;font-size:var(--fs-small);font-weight:600;color:#0F0F0F;text-align:center}
+.flip-btn svg{transition:transform .5s var(--ease)}
+.pl.flipped .flip-btn svg{transform:rotate(180deg)}
+
+@media(prefers-reduced-motion:reduce){.pl,.pl::before,.flip-in,.ky [data-t]{transition:none}.nmt-box .tgt::after{animation:none}.pl:hover{transform:none}}
 </style>
 </head>
-<body data-tex="grid">
+<body>
 
 <header class="nav">
   <div class="nav-in">
-    <a class="nav-name" href="./">Edosa Leta<span class="nav-dot"></span></a>
+    <a class="nav-name" href="./">Edosa<span class="nav-last"> Leta</span><span class="nav-dot"></span></a>
     <nav class="nav-links">
       <a href="./work">Work</a>
       <a class="on" href="./playground">Playground</a>
-      <a href="./about">About</a>
+      <a href="./about">Life</a>
       <a href="./resume">Resume</a>
+    <button class="theme-toggle" type="button" aria-label="Switch to dark mode"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
     </nav>
   </div>
 </header>
 
 <main>
   <section class="page-head shell">
-    <div class="eyebrow">Outside work</div>
+    <div class="eyebrow">Outside Oracle</div>
     <h1>Playground</h1>
-    <p class="lede">Research and side projects, outside my work at Oracle.</p>
+    <p class="lede">Side projects and research from my own time. Each card does a little something; try it.</p>
   </section>
 
   <section class="section shell">
-    <h2 class="lbl">Side projects</h2>
-    <p class="sec-sub">Things I build and translate on my own time.</p>
-    <div class="pcard-grid big">
-      <div class="pc">
-        <a class="pcard" href="./case-ky-farms">
-          <div class="thumb"><span class="ph"><img src="./assets/ky-farms-thumb-336.webp" srcset="./assets/ky-farms-thumb-336.webp 336w, ./assets/ky-farms-thumb-672.webp 672w" sizes="(max-width:600px) 100vw, 480px" width="480" height="300" alt="" /></span></div>
-          <div class="pcard-text">
-            <span class="status"><i class="live"></i>Live</span>
-            <h3>KY Farms</h3>
-            <p>A bilingual, offline-first field journal for a working family farm, plus a public storefront for customers.</p>
-          </div>
-        </a>
-      </div>
-      <div class="pc">
-        <a class="pcard" href="./case-sesame-street">
-          <div class="thumb"><span class="ph"><img src="./assets/sesame-thumb-336.webp" srcset="./assets/sesame-thumb-336.webp 336w, ./assets/sesame-thumb-672.webp 672w" sizes="(max-width:600px) 100vw, 480px" width="480" height="300" alt="" /></span></div>
-          <div class="pcard-text">
-            <span class="status"><i class="neutral"></i>Translation</span>
-            <h3>Sesame Street, in Amharic</h3>
-            <p>Translating Sesame Street friends into Amharic so Ethiopian children meet them in their own language.</p>
-          </div>
-        </a>
-      </div>
+    <div class="filters" role="group" aria-label="Filter projects">
+      <button type="button" data-f="all" aria-pressed="true">All<span>4</span></button>
+      <button type="button" data-f="side" aria-pressed="false">Side projects<span>2</span></button>
+      <button type="button" data-f="research" aria-pressed="false">Research<span>2</span></button>
     </div>
-  </section>
-  <section class="section shell">
-    <h2 class="lbl">Research</h2>
-    <p class="sec-sub">Machine translation and bias in large language models.</p>
-    <div class="pcard-grid big">
-      <div class="pc">
-        <a class="pcard" href="https://github.com/EdoLeta/English_Amharic_Translation" target="_blank" rel="noopener" aria-label="English–Amharic neural machine translation (opens in a new tab)">
-          <div class="thumb"><span class="ph"><img src="./assets/nmt-preview.svg" width="480" height="300" alt="" /></span></div>
-          <div class="pcard-text">
-            <span class="status"><i class="neutral"></i>Capstone · 2021</span>
-            <h3>English–Amharic neural machine translation</h3>
-            <p>A JoeyNMT translation model and the dataset it learned from.</p>
-            <span class="ext">Opens on GitHub<svg viewBox="0 0 12 12" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 2.5h6v6M9.5 2.5l-7 7"/></svg></span>
+
+    <h2 class="lbl" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Projects</h2>
+    <div class="play" id="play">
+      <article class="pl" data-cat="side">
+        <div class="pl-stage has-ky">
+          <div class="stage-bar"><span class="demo-note">Sample data</span><div class="seg2" role="group" aria-label="App language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="am" aria-pressed="false" lang="am">አማ</button></div></div>
+          <div class="ky" id="ky" aria-live="polite">
+            <div class="ky-top"><b data-t="today">Today</b><span style="font-size:12px;color:#6A6A6A" data-t="farm">KY Farms</span></div>
+            <div class="ky-row"><span data-t="seed">Seedlings</span><span>1,240</span></div>
+            <div class="ky-row"><span data-t="hives">Hives</span><span>12</span></div>
+            <div class="ky-row"><span data-t="stock">Livestock</span><span>8</span></div>
+            <div class="ky-mic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg><span data-t="voice">Log it by voice</span></div>
           </div>
-        </a>
-      </div>
-      <div class="pc">
-        <a class="pcard" href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=aolOSDsAAAAJ&amp;citation_for_view=aolOSDsAAAAJ:u5HHmVD_uO8C" target="_blank" rel="noopener" aria-label="Information retrieval in large language models (opens in a new tab)">
-          <div class="thumb"><span class="ph"><img src="./assets/llm-bias-preview.svg" width="480" height="300" alt="" /></span></div>
-          <div class="pcard-text">
-            <span class="status"><i class="public"></i>Published · 2023</span>
-            <h3>Information retrieval in large language models</h3>
-            <p>Demographic bias in how GPT-3.5 retrieves information, against Pew Research data.</p>
-            <span class="ext">Opens on Google Scholar<svg viewBox="0 0 12 12" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 2.5h6v6M9.5 2.5l-7 7"/></svg></span>
+        </div>
+        <div class="pl-body">
+          <div class="pl-k"><span class="status"><i class="live"></i>Live</span><span class="kind">Side project · 0→1</span></div>
+          <h3><a href="./case-ky-farms">KY Farms</a></h3>
+          <p>A bilingual, offline-first field journal for a working family farm, plus a public storefront for customers.</p>
+          <a class="pl-go" href="./case-ky-farms">Read the case study <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="pl" data-cat="side">
+        <div class="pl-stage">
+          <div class="flip">
+            <div class="flip-in">
+              <div class="face"><img src="./assets/sesame-thumb-672.webp" width="672" height="420" alt="Sesame Street friends illustration" loading="lazy" /></div>
+              <div class="face back" aria-hidden="true"><span class="k">The challenge</span><p>Children’s dialogue is deceptively hard to translate. Jokes, rhyme and rhythm carry the teaching, so a literal translation loses the lesson along with the laugh.</p></div>
+            </div>
           </div>
-        </a>
-      </div>
+          <button class="flip-btn" type="button" aria-pressed="false">The challenge <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 12a8 8 0 0114-5.3M20 12a8 8 0 01-14 5.3M18 3v4h-4M6 21v-4h4"/></svg></button>
+        </div>
+        <div class="pl-body">
+          <div class="pl-k"><span class="status"><i class="neutral"></i>Translation</span><span class="kind">Side project</span></div>
+          <h3><a href="./case-sesame-street">Sesame Street, in Amharic</a></h3>
+          <p>Translating Sesame Street friends into Amharic so Ethiopian children meet them in their own language.</p>
+          <a class="pl-go" href="./case-sesame-street">Read the case study <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="pl" data-cat="research">
+        <div class="pl-stage">
+          <div class="stage-bar"><span class="demo-note">Sample pairs, not model output</span></div>
+          <div class="nmt">
+            <div class="nmt-chips" role="group" aria-label="English phrase">
+              <button type="button" aria-pressed="true" data-am="ሰላም">Hello</button>
+              <button type="button" aria-pressed="false" data-am="አመሰግናለሁ">Thank you</button>
+              <button type="button" aria-pressed="false" data-am="እንኳን ደህና መጡ">Welcome</button>
+            </div>
+            <div class="nmt-box">
+              <span class="lang">English</span><span class="src" id="nmt-src">Hello</span>
+              <span class="lang" style="margin-top:6px">Amharic</span><span class="tgt" id="nmt-tgt" lang="am" aria-live="polite">ሰላም</span>
+            </div>
+          </div>
+        </div>
+        <div class="pl-body">
+          <div class="pl-k"><span class="status"><i class="neutral"></i>Capstone · 2021</span><span class="kind">Research</span></div>
+          <h3><a href="https://github.com/EdoLeta/English_Amharic_Translation" target="_blank" rel="noopener">English–Amharic neural machine translation</a></h3>
+          <p>A JoeyNMT translation model and the dataset it learned from.</p>
+          <a class="pl-go" href="https://github.com/EdoLeta/English_Amharic_Translation" target="_blank" rel="noopener">Open on GitHub <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+
+      <article class="pl" data-cat="research">
+        <div class="pl-stage">
+          <div class="flip">
+            <div class="flip-in">
+              <div class="face"><img src="./assets/llm-bias-preview.svg" width="480" height="300" alt="Illustration of comparing language model answers with survey data" loading="lazy" /></div>
+              <div class="face back" aria-hidden="true"><span class="k">The method</span><p>Asked GPT-3.5 to retrieve information about people and groups, then compared its answers with Pew Research data to see where demographic bias shows up.</p></div>
+            </div>
+          </div>
+          <button class="flip-btn" type="button" aria-pressed="false">The method <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 12a8 8 0 0114-5.3M20 12a8 8 0 01-14 5.3M18 3v4h-4M6 21v-4h4"/></svg></button>
+        </div>
+        <div class="pl-body">
+          <div class="pl-k"><span class="status"><i class="public"></i>Published · 2023</span><span class="kind">Research</span></div>
+          <h3><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=aolOSDsAAAAJ&amp;citation_for_view=aolOSDsAAAAJ:u5HHmVD_uO8C" target="_blank" rel="noopener">Information retrieval in large language models</a></h3>
+          <p>Demographic bias in how GPT-3.5 retrieves information, against Pew Research data.</p>
+          <a class="pl-go" href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=aolOSDsAAAAJ&amp;citation_for_view=aolOSDsAAAAJ:u5HHmVD_uO8C" target="_blank" rel="noopener">Open on Google Scholar <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
     </div>
   </section>
 </main>
@@ -110,5 +213,72 @@
       </div>
   </div>
 </footer>
+<script>
+/* Playground cards: filters, cursor glow, and each card's small demo */
+(function () {
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cards = [].slice.call(document.querySelectorAll('.pl'));
+
+  // filters
+  var fb = [].slice.call(document.querySelectorAll('.filters button'));
+  fb.forEach(function (b) {
+    b.addEventListener('click', function () {
+      fb.forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      cards.forEach(function (c) { c.classList.toggle('out', b.dataset.f !== 'all' && c.dataset.cat !== b.dataset.f); });
+    });
+  });
+
+  // glow follows the cursor
+  if (!reduce) cards.forEach(function (c) {
+    c.addEventListener('pointermove', function (e) {
+      var r = c.getBoundingClientRect();
+      c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+
+  // KY Farms: switch the journal between English and Amharic
+  var T = { en: { today: 'Today', farm: 'KY Farms', seed: 'Seedlings', hives: 'Hives', stock: 'Livestock', voice: 'Log it by voice' },
+            am: { today: 'ዛሬ', farm: 'KY Farms', seed: 'ችግኞች', hives: 'ቀፎዎች', stock: 'እንስሳት', voice: 'በድምፅ ይመዝግቡ' } };
+  var ky = document.getElementById('ky');
+  var lb = [].slice.call(document.querySelectorAll('[data-lang]'));
+  lb.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var l = b.dataset.lang;
+      lb.forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      ky.classList.add('swap');
+      setTimeout(function () {
+        ky.querySelectorAll('[data-t]').forEach(function (el) { el.textContent = T[l][el.dataset.t]; el.lang = l === 'am' ? 'am' : 'en'; });
+        ky.classList.remove('swap');
+      }, reduce ? 0 : 200);
+    });
+  });
+
+  // NMT: choose a phrase, the Amharic types in
+  var src = document.getElementById('nmt-src'), tgt = document.getElementById('nmt-tgt'), timer;
+  var nb = [].slice.call(document.querySelectorAll('.nmt-chips button'));
+  nb.forEach(function (b) {
+    b.addEventListener('click', function () {
+      nb.forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      src.textContent = b.textContent;
+      clearTimeout(timer);
+      var out = b.dataset.am, i = 0;
+      if (reduce) { tgt.textContent = out; return; }
+      tgt.textContent = '';
+      (function type() { tgt.textContent = out.slice(0, ++i); if (i < out.length) timer = setTimeout(type, 90); })();
+    });
+  });
+
+  // flip cards
+  document.querySelectorAll('.flip-btn').forEach(function (b) {
+    var card = b.closest('.pl'), back = card.querySelector('.face.back');
+    b.addEventListener('click', function () {
+      var on = card.classList.toggle('flipped');
+      b.setAttribute('aria-pressed', String(on));
+      back.setAttribute('aria-hidden', String(!on));
+    });
+  });
+})();
+</script>
+<script src="./theme.js"></script>
 </body>
 </html>

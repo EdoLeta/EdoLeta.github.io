@@ -10,18 +10,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="./site.css?v=59" />
+<script>try{var d=document.documentElement,t=localStorage.getItem("theme");d.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");var b=new URLSearchParams(location.search).get("bg");if(b)sessionStorage.setItem("bg",b);b=b||sessionStorage.getItem("bg");if(b)d.dataset.bg=b}catch(e){}</script>
+<link rel="stylesheet" href="./site.css?v=63" />
 </head>
-<body data-tex="linen">
+<body>
 
 <header class="nav">
   <div class="nav-in">
-    <a class="nav-name" href="./">Edosa Leta<span class="nav-dot"></span></a>
+    <a class="nav-name" href="./">Edosa<span class="nav-last"> Leta</span><span class="nav-dot"></span></a>
     <nav class="nav-links">
       <a class="on" href="./work">Work</a>
       <a href="./playground">Playground</a>
-      <a href="./about">About</a>
+      <a href="./about">Life</a>
       <a href="./resume">Resume</a>
+    <button class="theme-toggle" type="button" aria-label="Switch to dark mode"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
     </nav>
   </div>
 </header>
@@ -95,7 +97,16 @@
 
     <div class="cs-section">
       <h2>How the agent decides</h2>
-      <p>The behavior layer in plain terms: for each situation, what the agent does, and what makes sure it does.</p>
+      <p>Watch one answer come together: the request, the intent the agent declares, the contract check, and the governed outcome the product renders.</p>
+      <figure class="anat" id="anat">
+        <div class="anat-top"><span class="anat-k">Anatomy of an AI answer</span><button type="button" id="anat-toggle" aria-pressed="false">Pause</button></div>
+        <div class="anat-l"><span>01</span><div><div class="anat-t">Request</div><p class="anat-v" id="a-req"></p></div></div>
+        <div class="anat-l"><span>02</span><div><div class="anat-t">Agent declares intent</div><span class="anat-chip" id="a-int"></span></div></div>
+        <div class="anat-l"><span>03</span><div><div class="anat-t">Contract check</div><div class="anat-ok" id="a-chk"></div></div></div>
+        <div class="anat-l"><span>04</span><div><div class="anat-t">Governed outcome</div><div class="anat-out" id="a-out"></div></div></div>
+        <figcaption class="anat-cap"><span>Illustrative · sample data</span><span>Loops through 3 requests</span></figcaption>
+      </figure>
+      <p style="margin-top:var(--s6)">The behavior layer in plain terms: for each situation, what the agent does, and what makes sure it does.</p>
       <table class="dec">
         <thead><tr><th scope="col">When</th><th scope="col">The agent</th><th scope="col">Enforced by</th></tr></thead>
         <tbody>
@@ -111,11 +122,8 @@
 
     <div class="cs-section">
       <h2>In the product</h2>
-      <p>Fusion Claw was announced on Sep 29, 2026. Its screens stay blurred here until the public release.</p>
-      <div class="pics two">
-        <figure class="pic"><div class="mask-wrap"><img src="./assets/fusion-claw/answer-masked.webp" alt="Blurred preview of the Fusion Claw answer view, which will be shown at the public release" loading="lazy" /><span class="mask-note">Screens shared at public release</span></div><figcaption>The answer: findings and recommended actions.</figcaption></figure>
-        <figure class="pic"><div class="mask-wrap"><img src="./assets/fusion-claw/canvas-masked.webp" alt="Blurred preview of the Fusion Claw Canvas, which will be shown at the public release" loading="lazy" /><span class="mask-note">Screens shared at public release</span></div><figcaption>The Canvas: an artifact rendered in its own space.</figcaption></figure>
-      </div>
+      <p>Fusion Claw is live. Oracle’s public demo shows it working through cost and profit planning.</p>
+      <figure class="pic video"><div class="video-box"><iframe src="https://www.youtube-nocookie.com/embed/3iW0x6V_Edg" title="Accelerate Cost and Profit Planning with Oracle Fusion Claw" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe></div><figcaption>Oracle’s demo: <a class="cs-link" href="https://www.youtube.com/watch?v=3iW0x6V_Edg" target="_blank" rel="noopener">Accelerate Cost and Profit Planning with Oracle Fusion Claw</a>.</figcaption></figure>
     </div>
 
     <div class="cs-learned">
@@ -128,9 +136,19 @@
         <li><a class="cs-link" href="https://www.oracle.com/news/announcement/oracle-introduces-fusion-agentic-applications-2026-03-24/" target="_blank" rel="noopener">Oracle Introduces Fusion Agentic Applications</a> <span class="stext-inline">Mar 24, 2026</span></li>
         <li><a class="cs-link" href="https://www.oracle.com/news/announcement/oracle-expands-ai-agent-studio-for-fusion-applications-with-agentic-applications-builder-2026-03-24/" target="_blank" rel="noopener">Oracle Expands AI Agent Studio for Fusion Applications with Agentic Applications Builder</a> <span class="stext-inline">Mar 24, 2026</span></li>
         <li><a class="cs-link" href="https://www.oracle.com/news/announcement/oracle-extends-fusion-agentic-applications-with-introduction-of-fusion-claw-2026-09-29/" target="_blank" rel="noopener">Oracle Extends Fusion Agentic Applications with Introduction of Fusion Claw</a> <span class="stext-inline">Sep 29, 2026</span></li>
+        <li><a class="cs-link" href="https://docs.oracle.com/en/cloud/saas/fusion-ai/fusion-claw.html" target="_blank" rel="noopener">Fusion Claw capabilities</a> <span class="stext-inline">Oracle Help Center</span></li>
       </ul>
     </div>
-    <p class="nda-note"><b>Note.</b> Much of this work is under NDA, so I share more in interviews. Parts of it will be shown publicly at Oracle AI World.</p>
+    <div class="cs-section no-toc">
+      <h2>In the press</h2>
+      <ul>
+        <li><a class="cs-link" href="https://siliconangle.com/2026/09/29/oracle-expands-ai-agent-functionality-with-fusion-claw/" target="_blank" rel="noopener">Oracle expands AI agent features with Fusion Claw</a> <span class="stext-inline">SiliconANGLE</span></li>
+        <li><a class="cs-link" href="https://erp.today/fusion-claw-oracles-new-runtime-for-autonomous-governed-enterprise-work/" target="_blank" rel="noopener">Fusion Claw: Oracle’s new runtime for autonomous, governed enterprise work</a> <span class="stext-inline">ERP Today</span></li>
+        <li><a class="cs-link" href="https://futurumgroup.com/insights/oracle-fusion-claw-from-ai-assistance-to-governed-autonomous-execution/" target="_blank" rel="noopener">Oracle Fusion Claw: from AI assistance to governed autonomous execution</a> <span class="stext-inline">Futurum</span></li>
+        <li><a class="cs-link" href="https://www.youtube.com/watch?v=jVsdOHkSE8k" target="_blank" rel="noopener">Oracle EVP Chris Leone on Fusion Claw</a> <span class="stext-inline">NYSE, video</span></li>
+      </ul>
+    </div>
+    <p class="nda-note"><b>Note.</b> Much of this work is under NDA, so I share more in interviews.</p>
 
     <div class="cs-next">
       <a href="./work"><span class="label">Back to</span>All work</a>
@@ -155,5 +173,50 @@
 </footer>
 
 <script src="./case.js?v=2"></script>
+<script>
+/* Anatomy card: builds one answer layer by layer, then moves to the next sample request. Sample data only. */
+(function () {
+  var fig = document.getElementById('anat');
+  if (!fig) return;
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var S = [
+    { req: 'Which invoices are overdue?', int: 'overdue_summary', chk: '✓ number · table · actions · evidence',
+      out: '<div class="k">Outcome · overdue invoices</div><div class="big">$48,200 overdue</div><div class="r"><span>Sample Co A</span><span>$26,400 · 64d</span></div><div class="r"><span>Sample Co B</span><span>$14,100 · 38d</span></div><div class="r"><span>Sample Co C</span><span>$7,700 · 21d</span></div><div class="acts"><span class="act p">Send reminders</span><span class="act">Escalate</span></div><div class="k">Evidence · AR aging report</div>' },
+    { req: 'Compare our suppliers on on-time delivery.', int: 'comparison', chk: '✓ 3+ items · table · evidence',
+      out: '<div class="k">Outcome · supplier comparison</div><div class="r"><span>Sample Co A</span><span>96%</span></div><div class="bar"><i style="width:96%"></i></div><div class="r"><span>Sample Co B</span><span>88%</span></div><div class="bar"><i style="width:88%"></i></div><div class="r"><span>Sample Co C</span><span>71%</span></div><div class="bar low"><i style="width:71%"></i></div><div class="k">Evidence · receipts, last 90 days</div>' },
+    { req: 'Where are we on the Q3 close?', int: 'summary', chk: '✓ headline · points · evidence',
+      out: '<div class="k">Outcome · Q3 close</div><div class="big">2 days behind plan</div><div class="r"><span>Reconciliations</span><span>18 of 22</span></div><div class="r"><span>Blocker</span><span>Intercompany</span></div><div class="k">Evidence · close checklist</div>' }
+  ];
+  var L = [].slice.call(fig.querySelectorAll('.anat-l'));
+  var req = document.getElementById('a-req'), int = document.getElementById('a-int'), chk = document.getElementById('a-chk'), out = document.getElementById('a-out');
+  var btn = document.getElementById('anat-toggle');
+  var i = 0, T = [], paused = reduce, visible = true;
+  function clear() { T.forEach(clearTimeout); T = []; }
+  function at(ms, f) { T.push(setTimeout(f, ms)); }
+  function step(n) { L.forEach(function (l, k) { l.classList.toggle('on', k <= n); l.classList.toggle('cur', k === n); }); }
+  function show(animate) {
+    var s = S[i];
+    clear();
+    int.textContent = s.int; chk.textContent = s.chk; out.innerHTML = s.out;
+    if (!animate) { req.textContent = s.req; step(3); L[3].classList.remove('cur'); return; }
+    req.textContent = ''; step(0);
+    var c = 0;
+    (function type() { req.textContent = s.req.slice(0, ++c); if (c < s.req.length) at(30, type); })();
+    at(1500, function () { step(1); });
+    at(2300, function () { step(2); });
+    at(3100, function () { step(3); });
+    at(7000, function () { i = (i + 1) % S.length; show(true); });
+  }
+  function set(p) { paused = p; btn.textContent = p ? 'Play' : 'Pause'; btn.setAttribute('aria-pressed', String(p)); show(!p && visible); }
+  btn.addEventListener('click', function () { set(!paused); });
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (e) {
+    visible = e[0].isIntersecting;
+    if (paused) return;
+    if (visible) show(true); else clear();
+  }, { threshold: .25 }).observe(fig);
+  set(paused);
+})();
+</script>
+<script src="./theme.js"></script>
 </body>
 </html>
