@@ -7,27 +7,27 @@
 :root{
   /* color */
   --paper:#FFFFFF;
-  --page:#F6F3EC;
-  --card:#FCFBF9;
-  --card-line:#E6E2DB;
+  --page:#F9FAF8;
+  --card:#FFFFFF;
+  --card-line:#E3E6E1;
   --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .4 0 0 0 0 .35 0 0 0 0 .3 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   --page-tex:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .55' numOctaves='2' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .40 0 0 0 0 .34 0 0 0 0 .27 0 0 0 .07 0'/%3E%3C/filter%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='9' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .38 0 0 0 0 .32 0 0 0 0 .26 0 0 0 .045 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
   --tex-grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .40 0 0 0 0 .34 0 0 0 0 .27 0 0 0 .055 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
   --tex-fine:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .40 0 0 0 0 .34 0 0 0 0 .27 0 0 0 .04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
   --tex-cotton:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012' numOctaves='3' seed='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .40 0 0 0 0 .34 0 0 0 0 .27 0 0 0 .05 0'/%3E%3C/filter%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='5' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .40 0 0 0 0 .34 0 0 0 0 .27 0 0 0 .035 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23c)'/%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
   --orange:#F08A3C;
-  --wash:#F7F6F4;
+  --wash:#F2F4F1;
   --ink:#0F0F0F;
   --body:#3D3D3D;
   --soft:#5F5F5F;
   --faint:#6A6A6A;
-  --line:#E7E5E1;
-  --line-2:#D8D5D0;
+  --line:#E6E9E4;
+  --line-2:#D4D8D2;
   --accent:#B4471F;
   --on-ink:#FFFFFF;
-  --nav-bg:rgba(245,244,240,.88);
+  --nav-bg:rgba(249,250,248,.86);
   --dotc:rgba(40,44,38,.11);
-  --bg-pattern:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.005' numOctaves='4' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.42 0 0 0 0 0.36 0 0 0 0 0.28 0 0 0 0.09 0'/%3E%3C/filter%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.02 .6' numOctaves='2' seed='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.42 0 0 0 0 0.36 0 0 0 0 0.28 0 0 0 0.035 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23m%29'/%3E%3Crect width='100%25' height='100%25' filter='url%28%23f%29'/%3E%3C/svg%3E") 0 0/420px 420px;
+  --bg-pattern:none;
 
   /* space: 4px base */
   --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px; --s8:64px;
@@ -786,3 +786,76 @@ html[data-theme="dark"][data-bg="wash"]{--page:#0F1411;--bg-pattern:radial-gradi
   --card:#FCFBF9;--card-line:#E6E2DB;--paper:#FFFFFF;--wash:#F7F6F4;--accent:#B4471F;
   background:#F1EFEA;border-color:#F1EFEA;color:var(--ink)
 }
+
+/* ownership lists inside case-study cards */
+.cs-section .sol ul.own-list{margin-top:var(--s3)}
+.cs-section .sol ul.own-list li{font-size:var(--fs-body);line-height:var(--lh-body);margin-bottom:var(--s2)}
+
+/* ==========================================================
+   Theme: one day. Each page is a time of day, told by a soft sky
+   at the top and the nav dot, which is that hour's sun.
+   home = morning · work = midday · playground = afternoon
+   life = golden hour · resume = dusk. Dark mode is the same day at night.
+   ========================================================== */
+:root{--sky:none;--sun:var(--accent)}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background:var(--sky);transition:opacity var(--dur-2)}
+.nav-dot{background:var(--sun);box-shadow:0 0 0 3px color-mix(in srgb,var(--sun) 22%,transparent)}
+
+/* morning */
+:root[data-page="home"]:not([data-theme="dark"]){--sun:#F0A35E;
+  --sky:radial-gradient(900px 520px at 88% -12%,rgba(255,186,150,.57),transparent 65%),radial-gradient(820px 520px at -4% -8%,rgba(166,204,236,.46),transparent 60%)}
+/* midday */
+:root[data-page="work"]:not([data-theme="dark"]){--page:#F8FAFB;--nav-bg:rgba(248,250,251,.86);--sun:#F2B33D;
+  --sky:radial-gradient(1300px 560px at 50% -20%,rgba(140,196,240,.61),transparent 70%)}
+/* afternoon: the workbench, a faint blueprint dot grid */
+:root[data-page="playground"]:not([data-theme="dark"]){--page:#F3F7FA;--nav-bg:rgba(243,247,250,.86);--sun:#EC9536;
+  --card-line:#DDE5EE;--line:#E1E8EF;--line-2:#CDD7E2;
+  --bg-pattern:radial-gradient(circle,rgba(52,92,140,.15) 1px,transparent 1.4px) 0 0/22px 22px;
+  --sky:radial-gradient(900px 540px at 92% -14%,rgba(255,206,130,.65),transparent 62%),radial-gradient(900px 600px at -6% -4%,rgba(130,190,236,.49),transparent 60%)}
+/* golden hour: warm cream, a low sun, and map contour lines for the outdoors */
+:root[data-page="life"]:not([data-theme="dark"]){--page:#FBF6EE;--nav-bg:rgba(251,246,238,.86);--sun:#E2602E;
+  --card-line:#EDE2D3;--line:#EFE6DA;--line-2:#E0D3C1;
+  --bg-pattern:repeating-radial-gradient(circle at 100% 0%,transparent 0 46px,rgba(176,98,40,.075) 46px 47px);
+  --sky:radial-gradient(780px 580px at 96% -6%,rgba(255,165,90,.65),transparent 65%),radial-gradient(820px 620px at -12% 108%,rgba(120,170,200,.30),transparent 62%)}
+:root[data-page="life"] body{background-attachment:fixed}
+/* dusk: lavender desk, the resume on one sheet of paper */
+:root[data-page="resume"]:not([data-theme="dark"]){--page:#EDECF1;--nav-bg:rgba(237,236,241,.86);--sun:#8C74CC;
+  --sky:radial-gradient(1000px 540px at 14% -16%,rgba(186,166,232,.65),transparent 65%),radial-gradient(820px 500px at 96% -12%,rgba(250,168,150,.42),transparent 60%)}
+
+/* night: same skies, dimmer, over a blue-black */
+:root[data-theme="dark"][data-page]{--page:#0F1115;--nav-bg:rgba(15,17,21,.86);--bg-pattern:none}
+:root[data-theme="dark"][data-page="home"]{--sun:#F0A35E;--sky:radial-gradient(900px 520px at 88% -12%,rgba(240,150,110,.12),transparent 65%),radial-gradient(820px 520px at -4% -8%,rgba(110,150,200,.12),transparent 60%)}
+:root[data-theme="dark"][data-page="work"]{--sun:#F2B33D;--sky:radial-gradient(1300px 560px at 50% -20%,rgba(90,140,200,.16),transparent 70%)}
+:root[data-theme="dark"][data-page="playground"]{--sun:#EC9536;--bg-pattern:radial-gradient(circle,rgba(170,200,235,.07) 1px,transparent 1.4px) 0 0/22px 22px;
+  --sky:radial-gradient(900px 540px at 92% -14%,rgba(236,149,54,.12),transparent 62%),radial-gradient(900px 600px at -6% -4%,rgba(90,150,210,.12),transparent 60%)}
+:root[data-theme="dark"][data-page="life"]{--page:#14110E;--nav-bg:rgba(20,17,14,.86);--sun:#E2602E;
+  --bg-pattern:repeating-radial-gradient(circle at 100% 0%,transparent 0 46px,rgba(240,160,100,.05) 46px 47px);
+  --sky:radial-gradient(780px 580px at 96% -6%,rgba(240,138,60,.18),transparent 65%),radial-gradient(820px 620px at -12% 108%,rgba(110,160,190,.08),transparent 62%)}
+:root[data-theme="dark"][data-page="resume"]{--sun:#A48DE0;--sky:radial-gradient(1000px 540px at 14% -16%,rgba(140,116,204,.16),transparent 65%),radial-gradient(820px 500px at 96% -12%,rgba(220,130,120,.08),transparent 60%)}
+
+/* ---------- moving between pages: the nav stays put, the active pill glides,
+   the sky cross-fades and the page rises in ---------- */
+@view-transition{navigation:auto}
+.nav{view-transition-name:site-nav}
+.nav-links a.on{view-transition-name:nav-pill}
+main{view-transition-name:page}
+::view-transition-group(nav-pill){animation-duration:.45s;animation-timing-function:cubic-bezier(.2,.8,.2,1)}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.5s}
+::view-transition-old(page){animation:vt-out .2s ease both}
+::view-transition-new(page){animation:vt-in .5s cubic-bezier(.2,.8,.2,1) .05s both}
+@keyframes vt-out{to{opacity:0;transform:translateY(-6px)}}
+@keyframes vt-in{from{opacity:0;transform:translateY(14px)}}
+@media(prefers-reduced-motion:reduce){@view-transition{navigation:none}}
+
+/* ---------- nav icons: text on wide screens, icons when space runs out ---------- */
+.nav-links a{display:inline-flex;align-items:center;gap:6px}
+.nav-links .ni{display:none;width:20px;height:20px;flex-shrink:0}
+@media(max-width:600px){
+  .nav-links{gap:2px}
+  .nav-links a{width:40px;height:40px;justify-content:center;padding:0}
+  .nav-links .ni{display:block}
+  .nav-links .nt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .nav-last{display:inline}
+}
+@media(max-width:360px){.nav-links a{width:36px;height:36px}.nav-links .ni{width:18px;height:18px}}
+@media print{body::before{display:none}}
